@@ -1,0 +1,43 @@
+*.abcl
+*.fasl
+*.dx32fsl
+*.dx64fsl
+*.lx32fsl
+*.lx64fsl
+*.x86f
+*~
+.#*
+.tmp/
+.DS_Store
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+*.aux
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.blg
+*.bbl
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# Node
+node_modules/
+dist/
+.playwright-artifacts-*/
+test-results/
+playwright-report/
+
+# OS
+**/.DS_Store
+.DS_Store

@@ -1,0 +1,167 @@
+== smoke ==
+./scripts/test-runner.sh > .tmp/smoke.log 2>&1
+This is SBCL 2.6.1, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+WARNING: redefining QL-SETUP:QMERGE in DEFUN
+WARNING: redefining QL-SETUP:QENOUGH in DEFUN
+WARNING: redefining QL-SETUP::IMPLEMENTATION-SIGNATURE in DEFUN
+WARNING: redefining QL-SETUP::DUMB-STRING-HASH in DEFUN
+WARNING: redefining QL-SETUP::ASDF-FASL-PATHNAME in DEFUN
+WARNING: redefining QL-SETUP::ENSURE-ASDF-LOADED in DEFUN
+[hi] ready.
+[hi] smoke-test => T
+
+== test-unit ==
+sbcl --non-interactive \
+	  --eval '(require "asdf")' \
+	  --eval '(let ((quicklisp-init (merge-pathnames #P"quicklisp/setup.lisp" (user-homedir-pathname)))) (when (probe-file quicklisp-init) (load quicklisp-init)))' \
+	  --eval '(push (uiop:getcwd) asdf:*central-registry*)' \
+	  --eval '(asdf:test-system "hi/tests")' > .tmp/unit.log 2>&1
+This is SBCL 2.6.1, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+WARNING: redefining QL-SETUP:QMERGE in DEFUN
+WARNING: redefining QL-SETUP:QENOUGH in DEFUN
+WARNING: redefining QL-SETUP::IMPLEMENTATION-SIGNATURE in DEFUN
+WARNING: redefining QL-SETUP::DUMB-STRING-HASH in DEFUN
+WARNING: redefining QL-SETUP::ASDF-FASL-PATHNAME in DEFUN
+WARNING: redefining QL-SETUP::ENSURE-ASDF-LOADED in DEFUN
+        ？ HI::SMOKE-TEST
+  0.002 ✔   (true (smoke-test))
+  0.004 ✔ HI::SMOKE-TEST
+        ？ HI::FACT-CONSTRUCTION
+  0.000 ✔   (is equal (fact :website 'status 'in-progress) '(fact :website status in-progress :ephemeral))
+  0.001 ✔ HI::FACT-CONSTRUCTION
+        ？ HI::DEMO-STATE-TEST
+  0.000 ✔   (true (state-has-fact-p (demo-state) :website 'status 'in-progress))
+  0.000 ✔   (is equal (state-find-by-entity (demo-state) :website) '((fact :website status in-progress :ephemeral) (fact :website framework react :ephemeral)))
+  0.001 ✔ HI::DEMO-STATE-TEST
+        ？ HI::DEMO-TASK-TEST
+  0.000 ✔   (true (task-p (demo-task)))
+  0.000 ✔   (true (valid-task-p (demo-task)))
+  0.000 ✔   (is equal (mapcar #'plan-step-operator (task-plan (demo-task))) '(inspect infer decompose verify))
+  0.003 ✔ HI::DEMO-TASK-TEST
+        ？ HI::FILESYSTEM-WORKING
+  0.000 ✔   (true (state-has-fact-p state dir-ent 'scanner-status 'working))
+  0.000 ✔   (true (state-has-fact-p state dir-ent 'type 'directory))
+  0.000 ✔   (true (state-has-fact-p state dir-ent 'path path-str))
+  0.085 ✔ HI::FILESYSTEM-WORKING
+        ？ HI::FILESYSTEM-FAILED
+  0.000 ✔   (true (state-has-fact-p state (path->entity (ensure-directory-pathname "./this-does-not-exist-hopefully/")) 'scanner-status 'failed))
+  0.001 ✔ HI::FILESYSTEM-FAILED
+        ？ HI::LISP-SCANNER-TEST
+  0.000 ✔   (true (state-has-fact-p state (path->entity (probe-file "src/package.lisp")) 'defines :hi))
+  0.000 ✔   (true (state-has-fact-p state :hi 'type 'package))
+  0.002 ✔ HI::LISP-SCANNER-TEST
+        ？ HI::ASDF-SCANNER-TEST
+  0.000 ✔   (true (state-has-fact-p state (path->entity (probe-file "hi.asd")) 'defines-system :hi))
+  0.000 ✔   (true (state-has-fact-p state :hi 'type 'asdf-system))
+  0.000 ✔   (true (state-has-fact-p state (path->entity (pathname-directory-pathname (probe-file "hi.asd"))) 'language 'common-lisp))
+  0.003 ✔ HI::ASDF-SCANNER-TEST
+        ？ HI::STATE-QUERY-TEST
+  0.000 ✔   (is equal (length bindings) 1)
+  0.000 ✔   (is equal (cdr (assoc '?l b)) 'lisp)
+  0.000 ✔   (is equal (cdr (assoc '?p b)) :proj)
+  0.000 ✔   (is equal (cdr (assoc '?t b)) :t1)
+  0.003 ✔ HI::STATE-QUERY-TEST
+        ？ HI::DERIVE-TARGET-STATE-FALLBACK
+  0.000 ✔   (is equal (derive-target-state task) ())
+  0.003 ✔ HI::DERIVE-TARGET-STATE-FALLBACK
+        ？ HI::DERIVE-TARGET-STATE-DOGFOOD
+  0.000 ✔   (true (state-has-fact-p target-state 'system 'loaded t :ephemeral))
+  0.000 ✔   (true (state-has-fact-p target-state 'smoke-test 'executed t :ephemeral))
+  0.001 ✔ HI::DERIVE-TARGET-STATE-DOGFOOD
+        ？ HI::DERIVE-TARGET-STATE-SUMMARIZE
+  0.000 ✔   (true (state-has-fact-p target-state :my-folder 'status 'summarized :ephemeral))
+  0.001 ✔ HI::DERIVE-TARGET-STATE-SUMMARIZE
+        ？ HI::DERIVE-IMPLICATIONS-STARTUP
+  0.000 ✔   (true (state-has-fact-p final-state :f 'type 'startup-script))
+  0.001 ✔ HI::DERIVE-IMPLICATIONS-STARTUP
+        ？ HI::DERIVE-IMPLICATIONS-ASDF
+  0.000 ✔   (true (state-has-fact-p final-state :sys 'loads-system :sys))
+  0.001 ✔ HI::DERIVE-IMPLICATIONS-ASDF
+        ？ HI::GENERATE-PLAN-BASIC
+  0.000 ✔   (is equal (length plan) 1)
+  0.000 ✔   (is equal (plan-step-operator step) 'verify)
+  0.000 ✔   (is equal (plan-step-args step) '(:sys loaded))
+  0.003 ✔ HI::GENERATE-PLAN-BASIC
+        ？ HI::GENERATE-PLAN-VERIFY-RESULT
+  0.000 ✔   (is equal (length plan) 2)
+  0.000 ✔   (is equal (plan-step-operator s1) 'execute)
+  0.000 ✔   (is equal (plan-step-args s1) '(sbcl "--load" "repl_test.lisp"))
+  0.000 ✔   (is equal (plan-step-operator s2) 'verify)
+  0.000 ✔   (is equal (plan-step-args s2) '(:sys loaded))
+  0.003 ✔ HI::GENERATE-PLAN-VERIFY-RESULT
+        ？ HI::GENERATE-PLAN-SUMMARIZE
+  0.000 ✔   (is equal (length plan) 1)
+  0.000 ✔   (is equal (plan-step-operator s1) 'summarize)
+  0.000 ✔   (is equal (plan-step-args s1) '(:my-folder))
+  0.002 ✔ HI::GENERATE-PLAN-SUMMARIZE
+        ？ HI::HANDLE-INPUT-STRING-TEST
+WARNING: No candidates found for SUBJECT (FILESYSTEM-PROJECT)
+  0.000 ✔   (true (task-p task))
+  0.000 ✔   (is equal (task-intent task) 'verify-result)
+  0.000 ✔   (is equal (task-status task) 'draft)
+  0.012 ✔ HI::HANDLE-INPUT-STRING-TEST
+        ？ HI::SERVER-API-TASK-TEST
+Server started on port 8081
+Dashboard available at http://localhost:8081/dashboard/
+WARNING: No candidates found for SUBJECT (FILESYSTEM-PROJECT)
+127.0.0.1 - [2026-03-20 09:35:06] "POST /api/task HTTP/1.1" 200 98 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+  0.000 ✔   (true (hash-table-p parsed))
+  0.000 ✔   (is string= (gethash "intent" parsed) "VERIFY-RESULT")
+  0.000 ✔   (is string= (gethash "status" parsed) "DRAFT")
+  0.000 ✔   (is string= (gethash "message" parsed) "Task translated successfully.")
+Server stopped.
+  0.175 ✔ HI::SERVER-API-TASK-TEST
+
+;; Summary:
+Passed:    44
+Failed:     0
+Skipped:    0
+
+== test-integration ==
+sbcl --non-interactive \
+	  --eval '(require "asdf")' \
+	  --eval '(let ((quicklisp-init (merge-pathnames #P"quicklisp/setup.lisp" (user-homedir-pathname)))) (when (probe-file quicklisp-init) (load quicklisp-init)))' \
+	  --eval '(push (uiop:getcwd) asdf:*central-registry*)' \
+	  --eval '(asdf:test-system "hi/integration-tests")' > .tmp/integration.log 2>&1
+This is SBCL 2.6.1, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+WARNING: redefining QL-SETUP:QMERGE in DEFUN
+WARNING: redefining QL-SETUP:QENOUGH in DEFUN
+WARNING: redefining QL-SETUP::IMPLEMENTATION-SIGNATURE in DEFUN
+WARNING: redefining QL-SETUP::DUMB-STRING-HASH in DEFUN
+WARNING: redefining QL-SETUP::ASDF-FASL-PATHNAME in DEFUN
+WARNING: redefining QL-SETUP::ENSURE-ASDF-LOADED in DEFUN
+        ？ HI::E2E-SUMMARIZE-FOLDER-TEST
+  0.002 ✔   (true (task-p task))
+  0.000 ✔   (is equal (task-intent task) 'summarize)
+  0.000 ✔   (is equal (task-status task) 'draft)
+  0.000 ✔   (is equal (length subject-fact) 1)
+  0.000 ✔   (is equal (fact-entity (first subject-fact)) :this-task)
+  0.000 ✔   (is equal (fact-value (first subject-fact)) sandbox-entity)
+  0.000 ✔   (true (state-has-fact-p target-state sandbox-entity 'status 'summarized :ephemeral))
+  0.000 ✔   (is equal (length plan) 1)
+  0.000 ✔   (is equal (plan-step-operator (first plan)) 'summarize)
+  0.000 ✔   (is equal (plan-step-args (first plan)) (list sandbox-entity))
+  0.017 ✔ HI::E2E-SUMMARIZE-FOLDER-TEST
+
+;; Summary:
+Passed:    10
+Failed:     0
+Skipped:    0

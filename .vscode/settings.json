@@ -1,0 +1,11 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "sbcl": true,
+        "./scripts/test-runner.sh": true,
+        "make": true,
+        "/^cd /Users/micahsmith/dev/hi && python3 - << 'EOF'\nimport spacy\nnlp = spacy\\.load\\(\"en_core_web_sm\"\\)\n\nfor text in \\[\n    \"the fox jumped over the log and the fence\",\n    \"the fox jumped over the log and over the fence\",\n\\]:\n    print\\(f\"\\\\n=== \\{text\\} ===\"\\)\n    doc = nlp\\(text\\)\n    for token in doc:\n        print\\(f\"  \\{token\\.i:2\\} \\{token\\.text:<12\\} dep=\\{token\\.dep_:<12\\} head=\\{token\\.head\\.text:<12\\} pos=\\{token\\.pos_\\}\"\\)\nEOF$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

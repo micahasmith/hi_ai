@@ -1,0 +1,17 @@
+[     216ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/favicon.ico:0
+[     226ms] TypeError: graph.facts.map is not a function
+    at http://localhost:5173/src/App.jsx?t=1774131772454:127:35
+    at updateMemo (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:6545:21)
+    at Object.useMemo (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:18969:20)
+    at exports.useMemo (http://localhost:5173/node_modules/.vite/deps/chunk-FCVBRA66.js?v=36cc7667:947:36)
+    at App (http://localhost:5173/src/App.jsx?t=1774131772454:126:28)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:997:72)
+[     226ms] [WARNING] %s
+
+%s
+ An error occurred in the <App> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=11554aef:6965

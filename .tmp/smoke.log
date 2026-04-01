@@ -1,0 +1,42 @@
+This is SBCL 2.6.1, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+WARNING: redefining QL-SETUP:QMERGE in DEFUN
+WARNING: redefining QL-SETUP:QENOUGH in DEFUN
+WARNING: redefining QL-SETUP::IMPLEMENTATION-SIGNATURE in DEFUN
+WARNING: redefining QL-SETUP::DUMB-STRING-HASH in DEFUN
+WARNING: redefining QL-SETUP::ASDF-FASL-PATHNAME in DEFUN
+WARNING: redefining QL-SETUP::ENSURE-ASDF-LOADED in DEFUN
+WARNING: System definition file #P"/Users/micahsmith/quicklisp/dists/quicklisp/software/cl-redis-20250622-git/cl-redis.asd" contains definition for system "cl-redis-test". Please only define "cl-redis" and secondary systems with a name starting with "cl-redis/" (e.g. "cl-redis/test") in that file.
+WARNING:
+   redefining TRIVIAL-GRAY-STREAMS:STREAM-READ-SEQUENCE (#<STANDARD-CLASS CL+SSL::SSL-STREAM>
+                                                         #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>
+                                                         #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>
+                                                         #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
+WARNING:
+   redefining TRIVIAL-GRAY-STREAMS:STREAM-WRITE-SEQUENCE (#<STANDARD-CLASS CL+SSL::SSL-STREAM>
+                                                          #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>
+                                                          #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>
+                                                          #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
+WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
+WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
+[Calculus] Reasoning layer initialized.
+[Scanners] Subsystem initialized.
+
+; file: /Users/micahsmith/dev/hi/scripts/test-runner.lisp
+; in: DEFUN ∆
+;     (:LOAD-SYSTEM :HI :FORCE T)
+; 
+; caught STYLE-WARNING:
+;   undefined function: :LOAD-SYSTEM
+; 
+; compilation unit finished
+;   Undefined function:
+;     :LOAD-SYSTEM
+;   caught 1 STYLE-WARNING condition
+[hi] ready.
+[hi] smoke-test => T

@@ -1,0 +1,26 @@
+# git-crypt: encrypt source code and data content.
+
+# Root source/build files
+*.asd filter=git-crypt diff=git-crypt
+Makefile filter=git-crypt diff=git-crypt
+
+# Python source at repo root
+*.py filter=git-crypt diff=git-crypt
+
+# Source code directories
+src/** filter=git-crypt diff=git-crypt
+domains/** filter=git-crypt diff=git-crypt
+scripts/** filter=git-crypt diff=git-crypt
+py/** filter=git-crypt diff=git-crypt
+api-tests/** filter=git-crypt diff=git-crypt
+tests/** filter=git-crypt diff=git-crypt
+tests_integration/** filter=git-crypt diff=git-crypt
+ui-tests/** filter=git-crypt diff=git-crypt
+viz/** filter=git-crypt diff=git-crypt
+dashboard/** filter=git-crypt diff=git-crypt
+
+# Data and knowledge content
+datasets/** filter=git-crypt diff=git-crypt
+states/** filter=git-crypt diff=git-crypt
+docs/** filter=git-crypt diff=git-crypt
+moon-cycle-planning/** filter=git-crypt diff=git-crypt
