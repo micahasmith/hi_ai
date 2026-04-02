@@ -25,7 +25,8 @@ The engine operates by detecting voids in the graph (represented by the Functor 
 
 ### 1. Common Lisp Standards
 *   For all Lisp code, after defining a function, provide a `#+nil(assert ...)` example immediately following the docstring to demonstrate its usage and allow easy REPL testing. (Skip if output > 5 lines).
-*   Always use the threading macros (`->`, `->>`, `cond->`) from `util.lisp` where they improve readability.
+*   **Composability & Pure Functions:** Write pure, single-purpose functions that are highly composable. Avoid monolithic functions that mix concerns (e.g., parsing an AST *and* generating database tasks in the same function).
+*   **Threading Macros:** You MUST actively use the threading macros (`->`, `->>`, `some->`, `some->>`, `cond->`, etc.) from `util.lisp` to chain pure functions together. This is the primary indicator that the system's architecture is correctly modularized.
 *   The system uses atomic, thread-safe macro wrappers for state mutation (`swap-ontology!`). **Never** mutate the global `*working-ontology*` directly outside of this wrapper.
 
 ### 2. The 4-Tuple Fact Structure
