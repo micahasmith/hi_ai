@@ -24,100 +24,27 @@ WARNING:
                                                           #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
 WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
 WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
-; compiling file "/Users/micahsmith/dev/hi/src/planner.lisp" (written 31 MAR 2026 06:57:30 PM):
+; compiling file "/Users/micahsmith/dev/hi/src/sail-to-facts.lisp" (written 04 APR 2026 01:29:02 PM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/planner-tmpAAURSO1.fasl
-; compilation finished in 0:00:00.033
-; compiling file "/Users/micahsmith/dev/hi/src/executor.lisp" (written 31 MAR 2026 06:58:12 PM):
-
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/executor-tmp5GEXGEG5.fasl
-; compilation finished in 0:00:00.011
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-; compiling file "/Users/micahsmith/dev/hi/tests_integration/01-summarize-folder.lisp" (written 31 MAR 2026 06:45:19 PM):
-
-; file: /Users/micahsmith/dev/hi/tests_integration/01-summarize-folder.lisp
-; in: DEFUN RUN-DEMO-HAPPY-PATH
-;     (HI::TASK-ID (GETHASH "task_id" HI::PARSED1))
+; file: /Users/micahsmith/dev/hi/src/sail-to-facts.lisp
+; in: DEFUN SAIL->FACTS
+;     (HI::FACTS 'NIL)
 ; 
 ; caught STYLE-WARNING:
-;   The variable TASK-ID is defined but never used.
+;   The variable FACTS is defined but never used.
 
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/01-summarize-folder-tmpAR3FSGEY.fasl
-; compilation finished in 0:00:00.003
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/sail-to-facts-tmpAAURSO1.fasl
+; compilation finished in 0:00:00.008
 WARNING:
-   Lisp compilation had style-warnings while compiling
-   #<CL-SOURCE-FILE "hi/integration-tests" "tests_integration" "01-summarize-folder">
-WARNING:
-   Deprecated recursive use of (ASDF/OPERATE:OPERATE 'ASDF/LISP-ACTION:LOAD-OP
-   '("quicklisp")) while visiting
-   (ASDF/LISP-ACTION:LOAD-OP "hi/integration-tests" "tests_integration"
-    "01-summarize-folder")
-   - please use proper dependencies instead
-WARNING:
-   Deprecated recursive use of (ASDF/OPERATE:OPERATE 'ASDF/LISP-ACTION:LOAD-OP
-   '("hi")) while visiting
-   (ASDF/LISP-ACTION:LOAD-OP "hi/integration-tests" "tests_integration"
-    "01-summarize-folder")
-   - please use proper dependencies instead
-
-[API-TEST] Starting isolated server on port 8088...
+   Lisp compilation had style-warnings while
+   compiling #<CL-SOURCE-FILE "hi" "src" "sail-to-facts">
 [Calculus] Reasoning layer initialized.
 [Scanners] Subsystem initialized.
-[Curiosity] Thread started.
-Server started on port 8088
-Dashboard available at http://localhost:8088/dashboard/
-[API] Clearing session data for session demo-happy-path-session
-127.0.0.1 - [2026-03-31 18:58:19] "POST /api/session/clear HTTP/1.1" 200 21 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+; compiling file "/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.lisp" (written 04 APR 2026 01:09:00 PM):
 
---- Sending Request 1 (Happy Path) ---
-DEBUG: target-word is :SUMMARIZED
-[API] Received task request for session demo-happy-path-session: "Summarize the document."
-[Session] Initializing new Redis ontology for session demo-happy-path-session (User: local-user)
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-[EAIL] Projected AST: (HI-ONTOLOGY:∴ (:DOCUMENT 'NIL) (:STATUS :SUMMARIZE 'NIL)
-                       '((:VERBFORM :INF) (:PUNCT :|.|)))
-[EAIL] Flattened Facts: ((HI:FACT :TASK-DEMO-HAPPY-PATH-SESSION-3983986699-5860
-                                  :SUBJECT :DOCUMENT :EPHEMERAL)
-                         (HI:FACT :TASK-DEMO-HAPPY-PATH-SESSION-3983986699-5860
-                                  HI-ONTOLOGY:IS-A :SUMMARIZE :EPHEMERAL)
-                         (HI:FACT :DOCUMENT :STATUS :SUMMARIZE :EPHEMERAL))
-[API] Received task request for session demo-happy-path-session: "Summarize the document."
-[API] Task processing complete for session demo-happy-path-session, ID: TASK-DEMO-HAPPY-PATH-SESSION-3983986699-5860
-127.0.0.1 - [2026-03-31 18:58:30] "POST /api/task HTTP/1.1" 200 530 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
-[Curiosity] Background enrichment for :SUMMARIZE in session demo-happy-path-session (Score: 1)...
-[Learning] Coordinate Projection Successful for summarize: (SUMMARIZE ACTION SYSTEM)
-[Tetragrammaton] Incarnating new concept: :SUMMARIZE (SUMMARIZE -> ACTION -> SYSTEM)
-[Calculus] Accommodated new concept into Postgres: :SUMMARIZE -> (:SUMMARIZE :ACTION :SYSTEM)
-[Curiosity] Finished enriching :SUMMARIZE.
-[EAIL] Projected AST: (HI-ONTOLOGY:∴ (:DOCUMENT 'NIL) (:STATUS :SUMMARIZE 'NIL)
-                       '((:VERBFORM :INF) (:PUNCT :|.|)))
-[EAIL] Flattened Facts: ((HI:FACT :TASK-DEMO-HAPPY-PATH-SESSION-3983986711-6906
-                                  :SUBJECT :DOCUMENT :EPHEMERAL)
-                         (HI:FACT :TASK-DEMO-HAPPY-PATH-SESSION-3983986711-6906
-                                  HI-ONTOLOGY:IS-A :SUMMARIZE :EPHEMERAL)
-                         (HI:FACT :DOCUMENT :STATUS :SUMMARIZE :EPHEMERAL))
-[API] Task processing complete for session demo-happy-path-session, ID: TASK-DEMO-HAPPY-PATH-SESSION-3983986711-6906
-127.0.0.1 - [2026-03-31 18:58:34] "POST /api/task HTTP/1.1" 200 530 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
-Response Status: DRAFT
-Response Message: Task is currently in progress.
-Response Execution Log: #(
-[hi] Context resolved. Deriving target state...
-[Derive Target] Subject: :DOCUMENT (Root: :TEXT_FILE), Intent: :SUMMARIZE (Target Word: :SUMMARIZED)
-[hi] Generating plan...
-[hi] Executing plan...
-VERIFYING: :DOCUMENT :STATUS :SUMMARIZED
-[hi] Task complete. Syncing graph dashboard...
-)
-[Curiosity] Thread stopped.
-Server stopped.
-
-[API-TEST] Server stopped.
-; compiling file "/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.lisp" (written 31 MAR 2026 06:46:52 PM):
-
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop-tmpF0KDNX6B.fasl
-; compilation finished in 0:00:00.005
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop-tmp5GEXGEG5.fasl
+; compilation finished in 0:00:00.004
 WARNING:
    Deprecated recursive use of (ASDF/OPERATE:OPERATE 'ASDF/LISP-ACTION:LOAD-OP
    '("quicklisp")) while visiting
@@ -137,87 +64,208 @@ WARNING:
 [Curiosity] Thread started.
 Server started on port 8089
 Dashboard available at http://localhost:8089/dashboard/
-[Curiosity] Background enrichment for :SUMMARIZE in session demo-happy-path-session (Score: 2)...
-[Learning] Coordinate Projection Successful for summarize: (SUMMARIZE ABSTRACT CONCEPT)
-[Tetragrammaton] Incarnating new concept: :SUMMARIZE (SUMMARIZE -> ABSTRACT -> CONCEPT)
-[Calculus] Accommodated new concept into Postgres: :SUMMARIZE -> (:SUMMARIZE :ABSTRACT :CONCEPT)
 [API] Clearing session data for session contextual-learning-session
-127.0.0.1 - [2026-03-31 18:58:35] "POST /api/session/clear HTTP/1.1" 200 21 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+127.0.0.1 - [2026-04-04 13:29:09] "POST /api/session/clear HTTP/1.1" 200 21 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
 
 --- Sending Request 1 (Frobulator) ---
-[API] Received task request for session contextual-learning-session: "Execute the frobulator"
+[API] Received task request for session contextual-learning-session: "Execute the zxqxwjkl"
 [Session] Initializing new Redis ontology for session contextual-learning-session (User: local-user)
 [Domain] Injecting Absolute meta-physics into Working Ontology...
-[Curiosity] Finished enriching :SUMMARIZE.
-[EAIL] Projected AST: (HI-ONTOLOGY:∴ (:FROBULATOR 'NIL) (:STATUS :EXECUTE 'NIL)
-                       '((:VERBFORM :INF)))
-[EAIL] Flattened Facts: ((HI:FACT
-                          :TASK-CONTEXTUAL-LEARNING-SESSION-3983986715-311
-                          :SUBJECT :FROBULATOR :EPHEMERAL)
-                         (HI:FACT
-                          :TASK-CONTEXTUAL-LEARNING-SESSION-3983986715-311
-                          HI-ONTOLOGY:IS-A :EXECUTE :EPHEMERAL)
-                         (HI:FACT :FROBULATOR :STATUS :EXECUTE :EPHEMERAL))
-[API] Task processing complete for session contextual-learning-session, ID: TASK-CONTEXTUAL-LEARNING-SESSION-3983986715-311
-127.0.0.1 - [2026-03-31 18:58:37] "POST /api/task HTTP/1.1" 200 1134 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
-Response 1 Status: DRAFT
-Response 1 Message: Task is currently in progress.
-Unhandled SIMPLE-ERROR in thread #<SB-THREAD:THREAD tid=259 "main thread" RUNNING
-                                    {7006E103E3}>:
-  The assertion (STRING= STATUS "BLOCKED") failed with STATUS = "DRAFT".
+[Input] Pipeline Trace:
+  [INPUT]:
+    "Execute the zxqxwjkl"
+  [EIL]:
+    ((:EXECUTE (:NIL 'NIL) (:ZXQXWJKL '((:NUMBER :PLUR) (:DET :THE)))
+      '((:VERBFORM :INF))))
+  [EAIL]:
+    ((HI-ONTOLOGY:IMPLIES
+      (HI-ONTOLOGY:IS-A
+       ((HI-ONTOLOGY:† :YOU HI-ONTOLOGY:∴ '((:IMPLICIT T))) 'NIL) (:NIL 'NIL)
+       'NIL)
+      (HI-ONTOLOGY:IS-A (:ZXQXWJKL '((:EXECUTE HI-ONTOLOGY:∴))) (:NIL 'NIL)
+       'NIL)
+      '((:EXECUTE HI-ONTOLOGY:∴)) '((:VERBFORM :INF))))
+  [SAIL]:
+    ((HI-ONTOLOGY:IMPLIES
+      (HI-ONTOLOGY:IS-A
+       ((HI-ONTOLOGY:† :YOU HI-ONTOLOGY:∴ '((:IMPLICIT T))) 'NIL) (:NIL 'NIL)
+       'NIL)
+      (HI-ONTOLOGY:IS-A
+       (:ZXQXWJKL
+        '(((HI-ONTOLOGY:√ :EXECUTE :EXECUTE :ACTION :SYSTEM HI-ONTOLOGY:∴ 'NIL)
+           HI-ONTOLOGY:∴)))
+       (:NIL 'NIL) 'NIL)
+      '(((HI-ONTOLOGY:√ :EXECUTE :EXECUTE :ACTION :SYSTEM HI-ONTOLOGY:∴ 'NIL)
+         HI-ONTOLOGY:∴))
+      '((:VERBFORM :INF))))
+  [FACTS]:
+    ((HI:FACT (HI:FACT :YOU HI-ONTOLOGY:IMPLIES :ZXQXWJKL :EPHEMERAL) :VERBFORM
+              :INF :EPHEMERAL)
+     (HI:FACT (HI:FACT :YOU HI-ONTOLOGY:IMPLIES :ZXQXWJKL :EPHEMERAL) :EXECUTE
+              HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :YOU :STATUS HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :YOU :REPRESENTATION HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :ZXQXWJKL :EXECUTE HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :YOU HI-ONTOLOGY:IMPLIES :ZXQXWJKL :EPHEMERAL))
+  [TASK-FACTS]:
+    ((HI:FACT (HI:FACT :YOU HI-ONTOLOGY:IMPLIES :ZXQXWJKL :EPHEMERAL) :VERBFORM
+              :INF :EPHEMERAL)
+     (HI:FACT (HI:FACT :YOU HI-ONTOLOGY:IMPLIES :ZXQXWJKL :EPHEMERAL) :EXECUTE
+              HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :YOU :STATUS HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :YOU :REPRESENTATION HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :ZXQXWJKL :EXECUTE HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :YOU HI-ONTOLOGY:IMPLIES :ZXQXWJKL :EPHEMERAL)
+     (HI:FACT :TASK-CONTEXTUAL-LEARNING-SESSION-3984312549-3354 :SUBJECT
+              :ZXQXWJKL :EPHEMERAL)
+     (HI:FACT :TASK-CONTEXTUAL-LEARNING-SESSION-3984312549-3354
+              HI-ONTOLOGY:IS-A :EXECUTE :EPHEMERAL))
+[API] Task processing complete for session contextual-learning-session, ID: TASK-CONTEXTUAL-LEARNING-SESSION-3984312549-3354
+127.0.0.1 - [2026-04-04 13:29:10] "POST /api/task HTTP/1.1" 200 1069 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+Response 1 Status: BLOCKED
+Response 1 Message: I cannot proceed because I am missing the semantic coordinates or physical instantiation for 'ZXQXWJKL'. Could you explain what this is?
 
-Backtrace for: #<SB-THREAD:THREAD tid=259 "main thread" RUNNING {7006E103E3}>
-0: (SB-DEBUG::DEBUGGER-DISABLED-HOOK #<SIMPLE-ERROR "~@<The assertion ~S failed~:[.~:; ~
-                                           with ~:*~{~S = ~S~^, ~}.~]~:@>" {700B42FD63}> #<unused argument> :QUIT T)
-1: (SB-DEBUG::RUN-HOOK SB-EXT:*INVOKE-DEBUGGER-HOOK* #<SIMPLE-ERROR "~@<The assertion ~S failed~:[.~:; ~
-                                           with ~:*~{~S = ~S~^, ~}.~]~:@>" {700B42FD63}>)
-2: (INVOKE-DEBUGGER #<SIMPLE-ERROR "~@<The assertion ~S failed~:[.~:; ~
-                                           with ~:*~{~S = ~S~^, ~}.~]~:@>" {700B42FD63}>)
-3: (ERROR #<SIMPLE-ERROR "~@<The assertion ~S failed~:[.~:; ~
-                                           with ~:*~{~S = ~S~^, ~}.~]~:@>" {700B42FD63}>)
-4: (SB-KERNEL:WITH-SIMPLE-CONDITION-RESTARTS ERROR NIL #<SIMPLE-ERROR "~@<The assertion ~S failed~:[.~:; ~
-                                           with ~:*~{~S = ~S~^, ~}.~]~:@>" {700B42FD63}>)
-5: (SB-KERNEL:ASSERT-ERROR (STRING= STATUS "BLOCKED") 1 STATUS "DRAFT")
-6: (RUN-FROBULATOR-CONTEXTUAL-TEST)
-7: ("top level form") [toplevel]
-8: (SB-FASL::LOAD-FASL-GROUP #S(SB-FASL::FASL-INPUT :STREAM #<SB-SYS:FD-STREAM for "file /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.fasl" {700AAE1F93}> :TABLE #(143 #1="/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.lisp" FRESH-LINE *STANDARD-OUTPUT* "[Op/Run] Successfully ran " "!
-" #<PACKAGE "HI"> OP/RUN #(8 79 2 36 40 10 0 1 103 48 1 1 ...) #() TARGET (TARGET) ...) :STACK #(0 #<FUNCTION "top level form" {700A6E15BB}> #<SB-KERNEL:FDEFN USER-HOMEDIR-PATHNAME> #<SB-KERNEL:FDEFN MERGE-PATHNAMES> #<SB-KERNEL:FDEFN PROBE-FILE> #<SB-KERNEL:FDEFN LOAD> #<SB-KERNEL:FDEFN UIOP/OS:GETCWD> #<SB-KERNEL:FDEFN ASDF/OPERATE:LOAD-SYSTEM> #<SB-KERNEL:FDEFN SB-INT:FIND-UNDELETED-PACKAGE-OR-LOSE> #<SB-KERNEL:FDEFN SB-IMPL::%DEFUN> #<SB-KERNEL:FDEFN OP/RUN> #<SB-KERNEL:FDEFN REGISTER-TOOL> ...) :NAME-BUFFER #("*CENTRAL-REGISTRY*" "RUNCKAGE*LETED-PACKAGE-OR-LOSE ") :PRINT NIL :CODEBLOBS NIL :PARTIAL-SOURCE-INFO #S(SB-C::DEBUG-SOURCE :NAMESTRING #1# :CREATED 3983986012 :START-POSITIONS NIL :PLIST NIL)))
-9: ((LAMBDA NIL :IN SB-FASL::LOAD-AS-FASL))
-10: (SB-IMPL::CALL-WITH-LOADER-PACKAGE-NAMES #<FUNCTION (LAMBDA NIL :IN SB-FASL::LOAD-AS-FASL) {700AAE58CB}>)
-11: (SB-FASL::LOAD-AS-FASL #<SB-SYS:FD-STREAM for "file /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.fasl" {700AAE1F93}> NIL NIL)
-12: ((LABELS SB-FASL::LOAD-STREAM-1 :IN LOAD) #<SB-SYS:FD-STREAM for "file /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.fasl" {700AAE1F93}> T)
-13: (SB-FASL::CALL-WITH-LOAD-BINDINGS #<FUNCTION (LABELS SB-FASL::LOAD-STREAM-1 :IN LOAD) {106CA1A4B}> #<SB-SYS:FD-STREAM for "file /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.fasl" {700AAE1F93}> T #<SB-SYS:FD-STREAM for "file /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.fasl" {700AAE1F93}>)
-14: (LOAD #P"/Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/02-agentic-loop.fasl" :VERBOSE NIL :PRINT NIL :IF-DOES-NOT-EXIST :ERROR :EXTERNAL-FORMAT :DEFAULT)
-15: (UIOP/UTILITY:CALL-WITH-MUFFLED-CONDITIONS #<FUNCTION (LAMBDA NIL :IN UIOP/LISP-BUILD:LOAD*) {700AAE183B}> ("Overwriting already existing readtable ~S." #(#:FINALIZERS-OFF-WARNING :ASDF-FINALIZERS)))
-16: ((SB-PCL::EMF ASDF/ACTION:PERFORM) #<unused argument> #<unused argument> #<ASDF/LISP-ACTION:LOAD-OP > #<ASDF/LISP-ACTION:CL-SOURCE-FILE "hi/integration-tests" "tests_integration" "02-agentic-loop">)
-17: ((LAMBDA NIL :IN ASDF/ACTION:CALL-WHILE-VISITING-ACTION))
-18: ((:METHOD ASDF/ACTION:PERFORM-WITH-RESTARTS (ASDF/LISP-ACTION:LOAD-OP ASDF/LISP-ACTION:CL-SOURCE-FILE)) #<ASDF/LISP-ACTION:LOAD-OP > #<ASDF/LISP-ACTION:CL-SOURCE-FILE "hi/integration-tests" "tests_integration" "02-agentic-loop">) [fast-method]
-19: ((:METHOD ASDF/ACTION:PERFORM-WITH-RESTARTS :AROUND (T T)) #<ASDF/LISP-ACTION:LOAD-OP > #<ASDF/LISP-ACTION:CL-SOURCE-FILE "hi/integration-tests" "tests_integration" "02-agentic-loop">) [fast-method]
-20: ((:METHOD ASDF/PLAN:PERFORM-PLAN (T)) #<ASDF/PLAN:SEQUENTIAL-PLAN {70051A0553}>) [fast-method]
-21: ((FLET SB-C::WITH-IT :IN SB-C::%WITH-COMPILATION-UNIT))
-22: ((:METHOD ASDF/PLAN:PERFORM-PLAN :AROUND (T)) #<ASDF/PLAN:SEQUENTIAL-PLAN {70051A0553}>) [fast-method]
-23: ((:METHOD ASDF/OPERATE:OPERATE (ASDF/OPERATION:OPERATION ASDF/COMPONENT:COMPONENT)) #<ASDF/LISP-ACTION:TEST-OP > #<ASDF/SYSTEM:SYSTEM "hi/integration-tests"> :PLAN-CLASS NIL :PLAN-OPTIONS NIL) [fast-method]
-24: ((SB-PCL::EMF ASDF/OPERATE:OPERATE) #<unused argument> #<unused argument> #<ASDF/LISP-ACTION:TEST-OP > #<ASDF/SYSTEM:SYSTEM "hi/integration-tests">)
-25: ((LAMBDA NIL :IN ASDF/OPERATE:OPERATE))
-26: ((:METHOD ASDF/OPERATE:OPERATE :AROUND (T T)) #<ASDF/LISP-ACTION:TEST-OP > #<ASDF/SYSTEM:SYSTEM "hi/integration-tests">) [fast-method]
-27: ((SB-PCL::EMF ASDF/OPERATE:OPERATE) #<unused argument> #<unused argument> ASDF/LISP-ACTION:TEST-OP "hi/integration-tests")
-28: ((LAMBDA NIL :IN ASDF/OPERATE:OPERATE))
-29: ((:METHOD ASDF/OPERATE:OPERATE :AROUND (T T)) ASDF/LISP-ACTION:TEST-OP "hi/integration-tests") [fast-method]
-30: (ASDF/SESSION:CALL-WITH-ASDF-SESSION #<FUNCTION (LAMBDA NIL :IN ASDF/OPERATE:OPERATE) {70051A035B}> :OVERRIDE T :KEY NIL :OVERRIDE-CACHE T :OVERRIDE-FORCING NIL)
-31: ((LAMBDA NIL :IN ASDF/OPERATE:OPERATE))
-32: (ASDF/SESSION:CALL-WITH-ASDF-SESSION #<FUNCTION (LAMBDA NIL :IN ASDF/OPERATE:OPERATE) {70051A028B}> :OVERRIDE NIL :KEY NIL :OVERRIDE-CACHE NIL :OVERRIDE-FORCING NIL)
-33: ((:METHOD ASDF/OPERATE:OPERATE :AROUND (T T)) ASDF/LISP-ACTION:TEST-OP "hi/integration-tests") [fast-method]
-34: (ASDF/OPERATE:TEST-SYSTEM "hi/integration-tests")
-35: (SB-INT:SIMPLE-EVAL-IN-LEXENV (ASDF/OPERATE:TEST-SYSTEM "hi/integration-tests") #<NULL-LEXENV>)
-36: (EVAL (ASDF/OPERATE:TEST-SYSTEM "hi/integration-tests"))
-37: (SB-IMPL::PROCESS-EVAL/LOAD-OPTIONS ((:EVAL . "(require \"asdf\")") (:EVAL . "(let ((quicklisp-init (merge-pathnames #P\"quicklisp/setup.lisp\" (user-homedir-pathname)))) (when (probe-file quicklisp-init) (load quicklisp-init)))") (:EVAL . "(push (uiop:getcwd) asdf:*central-registry*)") (:EVAL . "(asdf:test-system \"hi/integration-tests\")") (:QUIT)))
-38: (SB-IMPL::TOPLEVEL-INIT)
-39: ((FLET SB-UNIX::BODY :IN SB-IMPL::START-LISP))
-40: ((FLET "WITHOUT-INTERRUPTS-BODY-3" :IN SB-IMPL::START-LISP))
-41: (SB-IMPL::%START-LISP)
+--- Sending Request 2 (Answer) ---
+[API] Received task request for session contextual-learning-session: "The zxqxwjkl is a software tool."
+[Socratic] Resuming blocked task TASK-CONTEXTUAL-LEARNING-SESSION-3984312549-3354...
+[API] Task processing complete for session contextual-learning-session, ID: TASK-CONTEXTUAL-LEARNING-SESSION-3984312549-3354
+127.0.0.1 - [2026-04-04 13:29:11] "POST /api/task HTTP/1.1" 200 1995 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+Response 2 Status: COMPLETED
+Response 2 Message: Task executed successfully.
+[Curiosity] Thread stopped.
+Server stopped.
 
-unhandled condition in --disable-debugger mode, quitting
+[API-TEST] Server stopped.
+; compiling file "/Users/micahsmith/dev/hi/tests_integration/03-chat-query.lisp" (written 01 APR 2026 07:05:07 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests_integration/03-chat-query-tmpXGI96G7.fasl
+; compilation finished in 0:00:00.009
+WARNING:
+   Deprecated recursive use of (ASDF/OPERATE:OPERATE 'ASDF/LISP-ACTION:LOAD-OP
+   '("quicklisp")) while visiting
+   (ASDF/LISP-ACTION:LOAD-OP "hi/integration-tests" "tests_integration"
+    "03-chat-query")
+   - please use proper dependencies instead
+WARNING:
+   Deprecated recursive use of (ASDF/OPERATE:OPERATE 'ASDF/LISP-ACTION:LOAD-OP
+   '("hi")) while visiting
+   (ASDF/LISP-ACTION:LOAD-OP "hi/integration-tests" "tests_integration"
+    "03-chat-query")
+   - please use proper dependencies instead
+
+[API-TEST] Starting isolated server on port 8086...
+[Calculus] Reasoning layer initialized.
+[Scanners] Subsystem initialized.
+[Curiosity] Thread started.
+Server started on port 8086
+Dashboard available at http://localhost:8086/dashboard/
+[API-TEST] Sending task request to real Ollama...
+[API] Received task request for session api-test-3984312551: "what color is the sky?"
+[Session] Initializing new Redis ontology for session api-test-3984312551 (User: local-user)
+[Domain] Injecting Absolute meta-physics into Working Ontology...
+[Input] Pipeline Trace:
+  [INPUT]:
+    "what color is the sky?"
+  [EIL]:
+    ((:BE (:NIL 'NIL) (:COLOR '((:NUMBER :SING) (:DET :WHAT)))
+      (:SKY '((:NUMBER :SING) (:DET :THE)))
+      '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES)
+        (:VERBFORM :FIN) (:PUNCT :?))))
+  [EAIL]:
+    ((HI-ONTOLOGY:IS-A ((HI-ONTOLOGY:† :WHAT HI-ONTOLOGY:∴ 'NIL) :COLOR 'NIL)
+      (:SKY 'NIL) '((:PUNCT :?))))
+  [SAIL]:
+    ((HI-ONTOLOGY:IS-A
+      ((HI-ONTOLOGY:† :WHAT HI-ONTOLOGY:∴ 'NIL)
+       (HI-ONTOLOGY:√ :COLOR :PHYSICAL-NATURE :STATE :MATERIAL 'NIL 'NIL) 'NIL)
+      ((HI-ONTOLOGY:√ :SKY :ATMOSPHERE :STATE :SYSTEM 'NIL 'NIL) 'NIL)
+      '((:PUNCT :?))))
+  [FACTS]:
+    ((HI:FACT :COLOR :PUNCT :? :EPHEMERAL)
+     (HI:FACT :COLOR HI-ONTOLOGY:IS-A :SKY :EPHEMERAL)
+     (HI:FACT :COLOR :STATUS HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :COLOR :REPRESENTATION HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :COLOR :PILLAR :MATERIAL :EPHEMERAL)
+     (HI:FACT :COLOR :FORM :STATE :EPHEMERAL)
+     (HI:FACT :COLOR :ROOT :PHYSICAL-NATURE :EPHEMERAL)
+     (HI:FACT :SKY :PILLAR :SYSTEM :EPHEMERAL)
+     (HI:FACT :SKY :FORM :STATE :EPHEMERAL)
+     (HI:FACT :SKY :ROOT :ATMOSPHERE :EPHEMERAL))
+  [TASK-FACTS]:
+    ((HI:FACT :COLOR :PUNCT :? :EPHEMERAL)
+     (HI:FACT :COLOR HI-ONTOLOGY:IS-A :SKY :EPHEMERAL)
+     (HI:FACT :COLOR :STATUS HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :COLOR :REPRESENTATION HI-ONTOLOGY:∴ :EPHEMERAL)
+     (HI:FACT :COLOR :PILLAR :MATERIAL :EPHEMERAL)
+     (HI:FACT :COLOR :FORM :STATE :EPHEMERAL)
+     (HI:FACT :COLOR :ROOT :PHYSICAL-NATURE :EPHEMERAL)
+     (HI:FACT :SKY :PILLAR :SYSTEM :EPHEMERAL)
+     (HI:FACT :SKY :FORM :STATE :EPHEMERAL)
+     (HI:FACT :SKY :ROOT :ATMOSPHERE :EPHEMERAL)
+     (HI:FACT :TASK-API-TEST-3984312551-3984312551-5860 :SUBJECT :COLOR
+              :EPHEMERAL)
+     (HI:FACT :TASK-API-TEST-3984312551-3984312551-5860 HI-ONTOLOGY:IS-A :INFER
+              :EPHEMERAL)
+     (HI:FACT :TASK-API-TEST-3984312551-3984312551-5860 HI-ONTOLOGY:REQUIRES
+              (HI:FACT :COLOR :STATUS :RESOLVED :EPHEMERAL) :EPHEMERAL))
+[API] Task processing complete for session api-test-3984312551, ID: TASK-API-TEST-3984312551-3984312551-5860
+127.0.0.1 - [2026-04-04 13:29:12] "POST /api/task HTTP/1.1" 200 1126 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+[API-TEST] Task completed. ID: task-api-test-3984312551-3984312551-5860
+[API-TEST] Execution Log: #([DEBUG] Entering step-task for TASK-API-TEST-3984312551-3984312551-5860...
+[DEBUG] step-task loop iteration 1 start...
+[DEBUG] Entering %run-perception-implication-cycle...
+[DEBUG] %run-perception iteration 1 start...
+[DEBUG] %run-perception iteration 1 complete. Checking stability...
+[DEBUG] Ontology stabilized. Exiting %run-perception-implication-cycle.
+[DEBUG] step-task checking missing/ambiguous reqs in iteration 1...
+
+[hi] Context resolved. Deriving target state...
+[Derive Target] Subject: :COLOR (Root: :PHYSICAL-NATURE), Intent: :INFER (Target Word: NIL)
+[hi] Generating plan...
+[hi] Executing plan...
+ASSERTING: Phenomenal belief (∴) for HI-ONTOLOGY:∴ (HI:FACT :COLOR :STATUS
+                                                            :RESOLVED
+                                                            :EPHEMERAL)
+[hi] Task complete. Syncing graph dashboard...
+)
+[API-TEST] Fetching graph state...
+127.0.0.1 - [2026-04-04 13:29:17] "GET /api/graph?session_id=api-test-3984312551 HTTP/1.1" 200 13598 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
+
+--- GRAPH ANALYSIS ---
+Total Nodes: 37
+Total Edges: 48
+
+Edges connected to Task task-api-test-3984312551-3984312551-5860:
+  (None)
+
+Edges connected to :SKY:
+  what color is the sky? --[∆:implies]--> :task-api-test-3984312551-3984312551-5860
+  :color --[∆:is-a]--> :sky
+  :sky --[:pillar]--> :system
+  :sky --[:form]--> :state
+  :sky --[:root]--> :atmosphere
+  :task-api-test-3984312551-3984312551-5860 --[:user-input]--> what color is the sky?
+
+Edges connected to color/blue:
+  what color is the sky? --[∆:implies]--> :task-api-test-3984312551-3984312551-5860
+  :color --[:punct]--> :?
+  :color --[∆:is-a]--> :sky
+  :color --[:status]--> ∆:∴
+  :color --[:representation]--> ∆:∴
+  :color --[:pillar]--> :material
+  :color --[:form]--> :state
+  :color --[:root]--> :physical-nature
+  :task-api-test-3984312551-3984312551-5860 --[:subject]--> :color
+  :task-api-test-3984312551-3984312551-5860 --[:user-input]--> what color is the sky?
+[Curiosity] Thread stopped.
+Server stopped.
+
+[API-TEST] Server stopped.
+
+;; Summary:
+Passed:     0
+Failed:     0
+Skipped:    0
 ; 
-; compilation unit aborted
-;   caught 1 fatal ERROR condition
+; compilation unit finished
 ;   caught 1 STYLE-WARNING condition
