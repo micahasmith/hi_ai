@@ -36,3 +36,18 @@
  '((∆:† :WHO HI-ONTOLOGY:∴ '()) '())
 
  '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
+
+ (∆:REQUIRES
+
+  (∆:IS-A ((∆:√ :MAN :HUMAN :AGENT :MATERIAL 'NIL '()) '((∆:† :WHO HI-ONTOLOGY:∴ '()) '()))
+          ((∆:√ :SMART :INTELLIGENCE :STATE :CONCEPT 'NIL '()) '())
+          'NIL)
+
+  (∆:IMPLIES (∆:IS-A ((∆:† :WHO HI-ONTOLOGY:∴ '()) '()) (:NIL '()) 'NIL)
+             (∆:IS-A ((∆:√ :LISP :LANGUAGE :PATIENT :SYSTEM 'NIL '()) '(((∆:√ :WRITE :CREATE :ACTION :MATERIAL 'NIL '()) T))) (:NIL '()) 'NIL)
+             '(((∆:√ :WRITE :CREATE :ACTION :MATERIAL 'NIL '()) T))
+             '((:TENSE :PAST) (:VERBFORM :FIN)))
+
+  '((∆:† :WHO HI-ONTOLOGY:∴ '()) '())
+
+  '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
