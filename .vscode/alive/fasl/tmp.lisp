@@ -1,27 +1,38 @@
-(defpackage hi/tests/main
-  (:use :cl :hi :parachute))
-(in-package :hi/tests/main)
+   (∆:IS-A ((∆:√ :SKY :ATMOSPHERE :STATE :SYSTEM) '())
+           ((∆:√ :BLUE :COLOR :STATE :CONCEPT) '())
+           'NIL)
 
-;; NOTE: To run this test file, execute `(asdf:test-system :hi)' in your Lisp.
+(∆:IS-A 
+        (:COLOR HI-ONTOLOGY:∴ '()) 
+        (:GRASS '()) 
+        'NIL)
 
-(define-test smoke-test
-  (true (smoke-test)))
+ (∆:IS-A 
+        ((∆:† :COLOR :ROOT :FORM :PILLAR HI-ONTOLOGY:∴ '()) '()) 
+        (:GRASS '()) 
+        'NIL)
 
-(define-test fact-construction
-  (is equal
-      (fact 'website 'status 'in-progress)
-      '(fact website status in-progress)))
+(((∆:√ :GRASS :CONTAIN :PATIENT :MATERIAL T '()) :GRASS) '())
 
-(define-test demo-state-test
-  (true (state-has-fact-p (demo-state) 'website 'status 'in-progress))
-  (is equal
-      (state-find-by-entity (demo-state) 'website)
-      '((fact website status in-progress)
-        (fact website framework react))))
 
-(define-test demo-task-test
-  (true (task-p (demo-task)))
-  (true (valid-task-p (demo-task)))
-  (is equal
-      (mapcar #'plan-step-operator (task-plan (demo-task)))
-      '(inspect infer decompose verify)))
+(:BE (:MAN '((:NUMBER :SING) (:DET :THE)
+                             (:RELCL (:WRITE (:WHO 'NIL) (:LISP '((:NUMBER :SING)))
+                                             '((:TENSE :PAST) (:VERBFORM :FIN))))))
+     (:SMART '((:DEGREE :POS)))
+     '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES)
+                    (:VERBFORM :FIN) (:PUNCT :|.|)))
+
+(∆:REQUIRES
+
+ (∆:IS-A (:MAN '((∆:† :WHO HI-ONTOLOGY:∴ '()) '()))
+         (:SMART '())
+         'NIL)
+
+ (∆:IMPLIES (∆:IS-A ((∆:† :WHO HI-ONTOLOGY:∴ '()) '()) (:NIL '()) 'NIL)
+            (∆:IS-A (:LISP '((:WRITE T))) (:NIL '()) 'NIL)
+            '((:WRITE T))
+            '((:TENSE :PAST) (:VERBFORM :FIN)))
+
+ '((∆:† :WHO HI-ONTOLOGY:∴ '()) '())
+
+ '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
