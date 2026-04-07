@@ -1,53 +1,42 @@
-   (∆:IS-A ((∆:√ :SKY :ATMOSPHERE :STATE :SYSTEM) '())
-           ((∆:√ :BLUE :COLOR :STATE :CONCEPT) '())
-           'NIL)
+(in-package #:hi)
 
-(∆:IS-A 
-        (:COLOR HI-ONTOLOGY:∴ '()) 
-        (:GRASS '()) 
-        'NIL)
-
- (∆:IS-A 
-        ((∆:† :COLOR :ROOT :FORM :PILLAR HI-ONTOLOGY:∴ '()) '()) 
-        (:GRASS '()) 
-        'NIL)
-
-(((∆:√ :GRASS :CONTAIN :PATIENT :MATERIAL T '()) :GRASS) '())
-
-
-(:BE (:MAN '((:NUMBER :SING) (:DET :THE)
-                             (:RELCL (:WRITE (:WHO 'NIL) (:LISP '((:NUMBER :SING)))
-                                             '((:TENSE :PAST) (:VERBFORM :FIN))))))
-     (:SMART '((:DEGREE :POS)))
-     '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES)
-                    (:VERBFORM :FIN) (:PUNCT :|.|)))
-
-(∆:REQUIRES
-
- (∆:IS-A (:MAN '((∆:† :WHO HI-ONTOLOGY:∴ '()) '()))
-         (:SMART '())
-         'NIL)
-
- (∆:IMPLIES (∆:IS-A ((∆:† :WHO HI-ONTOLOGY:∴ '()) '()) (:NIL '()) 'NIL)
-            (∆:IS-A (:LISP '((:WRITE T))) (:NIL '()) 'NIL)
-            '((:WRITE T))
-            '((:TENSE :PAST) (:VERBFORM :FIN)))
-
- '((∆:† :WHO HI-ONTOLOGY:∴ '()) '())
-
- '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
-
- (∆:REQUIRES
-
-  (∆:IS-A ((∆:√ :MAN :HUMAN :AGENT :MATERIAL 'NIL '()) '((∆:† :WHO HI-ONTOLOGY:∴ '()) '()))
-          ((∆:√ :SMART :INTELLIGENCE :STATE :CONCEPT 'NIL '()) '())
-          'NIL)
-
-  (∆:IMPLIES (∆:IS-A ((∆:† :WHO HI-ONTOLOGY:∴ '()) '()) (:NIL '()) 'NIL)
-             (∆:IS-A ((∆:√ :LISP :LANGUAGE :PATIENT :SYSTEM 'NIL '()) '(((∆:√ :WRITE :CREATE :ACTION :MATERIAL 'NIL '()) T))) (:NIL '()) 'NIL)
-             '(((∆:√ :WRITE :CREATE :ACTION :MATERIAL 'NIL '()) T))
-             '((:TENSE :PAST) (:VERBFORM :FIN)))
-
-  '((∆:† :WHO HI-ONTOLOGY:∴ '()) '())
-
-  '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
+(defun get-eail-test-3 ()
+  (list 
+    :number 3
+    :description "Prepositional State"
+    :text "The book is on the table"
+    :eil '(:BE (:BOOK '((:NUMBER :SING) (:DET :THE))) (:ON (:TABLE '((:NUMBER :SING) (:DET :THE))) 'NIL) '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
+    :eail '(∆:REQUIRES 
+  (∆:IS-A (:BOOK '((:ON T))) (:NIL 'NIL) 'NIL)
+  (∆:IS-A (:TABLE 'NIL) (:NIL 'NIL) 'NIL)
+  '((:ON T)) 
+  '((:MOOD :IND) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
+    :sail '(∆:REQUIRES 
+  (∆:IS-A ((∆:√ :BOOK :KNOWLEDGE :PATIENT :MATERIAL 'NIL 'NIL) '((∆:√ :ON :SURFACE :STATE :MATERIAL T 'NIL))) (:NIL 'NIL) 'NIL)
+  (∆:IS-A ((∆:√ :TABLE :FURNITURE :PATIENT :MATERIAL 'NIL 'NIL) 'NIL) (:NIL 'NIL) 'NIL)
+  '((∆:√ :ON :SURFACE :STATE :MATERIAL T 'NIL)) 
+  '((:MOOD :IND) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :|.|)))
+    :facts '((FACT :BOOK :PILLAR :MATERIAL :EPHEMERAL)
+ (FACT :BOOK :FORM :PATIENT :EPHEMERAL)
+ (FACT :BOOK :ROOT :KNOWLEDGE :EPHEMERAL)
+ (FACT :TABLE :PILLAR :MATERIAL :EPHEMERAL)
+ (FACT :TABLE :FORM :PATIENT :EPHEMERAL)
+ (FACT :TABLE :ROOT :FURNITURE :EPHEMERAL)
+ (FACT :ON :PILLAR :MATERIAL :EPHEMERAL)
+ (FACT :ON :FORM :STATE :EPHEMERAL)
+ (FACT :ON :ROOT :SURFACE :EPHEMERAL)
+ (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
+ (FACT :S1 :FORM :STATE :EPHEMERAL)
+ (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL)
+ (FACT :S2 :FORM :STATE :EPHEMERAL)
+ (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
+ (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
+ (FACT :S1 ∆:IS-A (FACT :BOOK ∆:IS-A (:ON :SURFACE :STATE :MATERIAL T 'NIL) :EPHEMERAL) :EPHEMERAL)
+ (FACT :S2 ∆:IS-A (FACT :TABLE ∆:IS-A :NIL :EPHEMERAL) :EPHEMERAL)
+ (FACT :A1 ∆:IS-A (:ON :SURFACE :STATE :MATERIAL T 'NIL) :EPHEMERAL)
+ (FACT :A1 ∆:REQUIRES (:S1 :S2) :EPHEMERAL)
+ (FACT :A1 :MOOD :IND :EPHEMERAL)
+ (FACT :A1 :TENSE :PRES :EPHEMERAL)
+ (FACT :A1 :VERBFORM :FIN :EPHEMERAL)
+ (FACT :A1 :PUNCT :|.| :EPHEMERAL)
+ (FACT :S1 (:ON :SURFACE :STATE :MATERIAL T 'NIL) :S2 :EPHEMERAL))))
