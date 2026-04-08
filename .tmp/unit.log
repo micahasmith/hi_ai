@@ -29,369 +29,452 @@ WARNING:
                                                           #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
 WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
 WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
+; compiling file "/Users/micahsmith/dev/hi/src/eail.lisp" (written 08 APR 2026 06:42:38 AM):
+
+; file: /Users/micahsmith/dev/hi/src/eail.lisp
+; in: DEFUN %RESOLVE-TOKEN-TO-†
+;     'NIL
+; 
+; note: deleting unreachable code
+
+; in: DEFUN %GET-NODE-PROPS
+;     'NIL
+; 
+; note: deleting unreachable code
+
+; in: DEFUN %CLEAN-PROPS
+;     'NIL
+; 
+; note: deleting unreachable code
+
+; in: DEFUN %CLEAN-GLOBAL-MODS
+;     'NIL
+; 
+; note: deleting unreachable code
+
+; in: DEFUN %COMPILE-BE-VERB
+;     (HI-EAIL::IS-QUESTION (ASSOC :PUNCT HI-EAIL::MODIFIERS))
+; 
+; caught STYLE-WARNING:
+;   The variable IS-QUESTION is defined but never used.
+
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/eail-tmpAAURSO1.fasl
+; compilation finished in 0:00:00.035
+WARNING:
+   Lisp compilation had style-warnings while
+   compiling #<CL-SOURCE-FILE "hi" "src" "eail">
 [Calculus] Reasoning layer initialized.
 [Scanners] Subsystem initialized.
-; compiling file "/Users/micahsmith/dev/hi/tests/eail-tests.lisp" (written 08 APR 2026 06:19:00 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/test-lexicon.lisp" (written 07 APR 2026 11:34:47 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmpAAURSO1.fasl
-; compilation finished in 0:00:00.009
-; compiling file "/Users/micahsmith/dev/hi/tests/sail-tests.lisp" (written 08 APR 2026 06:19:12 AM):
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/test-lexicon-tmp5GEXGEG5.fasl
+; compilation finished in 0:00:00.001
+; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 08 APR 2026 05:06:14 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp5GEXGEG5.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/util-tests-tmpAR3FSGEY.fasl
+; compilation finished in 0:00:00.007
+; compiling file "/Users/micahsmith/dev/hi/tests/calculus-tests.lisp" (written 01 APR 2026 07:05:07 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/calculus-tests-tmpJAIDFZTC.fasl
+; compilation finished in 0:00:00.001
+; compiling file "/Users/micahsmith/dev/hi/tests/task-tests.lisp" (written 07 APR 2026 08:18:58 PM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/task-tests-tmp8V3J6PE9.fasl
+; compilation finished in 0:00:00.008
+; compiling file "/Users/micahsmith/dev/hi/tests/eail-tests.lisp" (written 08 APR 2026 06:40:48 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmp9V47YWQF.fasl
+; compilation finished in 0:00:00.005
+; compiling file "/Users/micahsmith/dev/hi/tests/sail-tests.lisp" (written 08 APR 2026 06:40:56 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp9BN22RMA.fasl
 ; compilation finished in 0:00:00.002
-; compiling file "/Users/micahsmith/dev/hi/tests/sail-to-facts-tests.lisp" (written 08 APR 2026 06:19:23 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/sail-to-facts-tests.lisp" (written 08 APR 2026 06:41:04 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-to-facts-tests-tmpAR3FSGEY.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-to-facts-tests-tmp1CXFJSK9.fasl
 ; compilation finished in 0:00:00.003
-        ？ HI::FACT-CONSTRUCTION
-  0.002 ✔   (is equal (fact :website 'status 'in-progress) '(fact :website status in-progress :ephemeral))
-  0.003 ✔ HI::FACT-CONSTRUCTION
-        ？ HI::DEMO-STATE-TEST
-  0.000 ✘   (true (state-has-fact-p :website 'status 'in-progress :ephemeral (demo-state)))
-  0.000 ✘   (is equal (state-find-by-entity :website (demo-state)) '((fact :website status in-progress :ephemeral) (fact :website framework react :ephemeral)))
-  0.002 ✘ HI::DEMO-STATE-TEST
-        ？ HI::SMOKE-TEST
-  0.000 ✔   (true (smoke-test))
-  0.001 ✔ HI::SMOKE-TEST
-        ？ HI::DEMO-TASK-TEST
-  0.000 ✔   (true (task-p :this-task state))
-  0.000 ✔   (true (valid-task-p :this-task state))
-  0.001 ✔ HI::DEMO-TASK-TEST
         ？ HI::ACCOMMODATE-CONCEPT-TEST
 [Calculus] Reasoning layer initialized.
-  0.014 ✔   (false (member test-root (solve-for-void test-form test-pillar)))
-[Calculus] Accommodated new concept into Postgres: :TESTWORD3984632371 -> (:TESTROOT3984632371 :PATIENT :SYSTEM)
+  0.015 ✔   (false (member test-root (solve-for-void test-form test-pillar)))
+[Calculus] Accommodated new concept into Postgres: :TESTWORD3984633776 -> (:TESTROOT3984633776 :PATIENT :SYSTEM)
   0.007 ✔   (true (member test-root (solve-for-void test-form test-pillar)))
   0.006 ✔   (is eq test-word (word-for-form test-root test-form))
-  0.004 ✔   (is eq test-root (root-for-word test-word))
-  0.061 ✔ HI::ACCOMMODATE-CONCEPT-TEST
-        ？ HI::HANDLE-INPUT-STRING-TEST
-[Input] Pipeline Trace:
-  [INPUT]:
-    "test this project"
-  [EIL]:
-    ((:TEST (:NIL 'NIL) (:PROJECT '((:NUMBER :SING) (:DET :THIS)))
-      '((:VERBFORM :INF))))
-  [EAIL]:
-    ((IMPLIES (IS-A ((† :YOU ∴ '((:IMPLICIT T))) 'NIL) (:NIL 'NIL) 'NIL)
-      (IS-A (:PROJECT 'NIL) (:TEST ∴) 'NIL) '((:TEST ∴)) '((:VERBFORM :INF))))
-  [SAIL]:
-    ((IMPLIES (IS-A ((† :YOU ∴ '((:IMPLICIT T))) 'NIL) (:NIL 'NIL) 'NIL)
-      (IS-A (:PROJECT 'NIL) ((√ :TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) 'NIL)
-       'NIL)
-      '((√ :TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)) '((:VERBFORM :INF))))
-  [FACTS]:
-    ((FACT :YOU :STATUS ∴ :EPHEMERAL) (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-     (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-     (FACT :S1 :FORM :STATE :EPHEMERAL)
-     (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-     (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-     (FACT :TEST :FORM :ACTION :EPHEMERAL)
-     (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-     (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-     (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-     (FACT :S2 IS-A
-           (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                 :EPHEMERAL)
-           :EPHEMERAL)
-     (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL) (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-     (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-     (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-     (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-     (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL))
-  [REASONING]:
-    ((:INPUT :TASK-ID :TASK-DEFAULT-SESSION-3984632371-5860 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :TEST :FORM :ACTION :EPHEMERAL)
-       (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-       (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A
-             (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                   :EPHEMERAL)
-             :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL)))
-     (:VOIDS :TASK-ID :TASK-DEFAULT-SESSION-3984632371-5860 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :TEST :FORM :ACTION :EPHEMERAL)
-       (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-       (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A
-             (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                   :EPHEMERAL)
-             :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU :TEST))
-     (:TYPED :TASK-ID :TASK-DEFAULT-SESSION-3984632371-5860 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :TEST :FORM :ACTION :EPHEMERAL)
-       (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-       (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A
-             (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                   :EPHEMERAL)
-             :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU :TEST) :TYPED-VOIDS ((:YOU :EXPLICIT) (:TEST :EXPLICIT))
-      :STATUS :BLOCKED)
-     (:INTENT :TASK-ID :TASK-DEFAULT-SESSION-3984632371-5860 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :TEST :FORM :ACTION :EPHEMERAL)
-       (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-       (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A
-             (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                   :EPHEMERAL)
-             :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU :TEST) :TYPED-VOIDS ((:YOU :EXPLICIT) (:TEST :EXPLICIT))
-      :STATUS :BLOCKED :INTENT :EXECUTE)
-     (:META :TASK-ID :TASK-DEFAULT-SESSION-3984632371-5860 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :TEST :FORM :ACTION :EPHEMERAL)
-       (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-       (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A
-             (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                   :EPHEMERAL)
-             :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU :TEST) :TYPED-VOIDS ((:YOU :EXPLICIT) (:TEST :EXPLICIT))
-      :STATUS :BLOCKED :INTENT :EXECUTE :QUESTIONS
-      ("I need to resolve YOU before I can proceed."
-       "I need to resolve TEST before I can proceed.")
-      :ASSUMPTIONS NIL)
-     (:SUBJECT :TASK-ID :TASK-DEFAULT-SESSION-3984632371-5860 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :TEST :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :TEST :FORM :ACTION :EPHEMERAL)
-       (FACT :TEST :ROOT :VERIFY :EPHEMERAL) (FACT :TEST :STATUS ∴ :EPHEMERAL)
-       (FACT :TEST :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A
-             (FACT :PROJECT IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL)
-                   :EPHEMERAL)
-             :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:TEST :VERIFY :ACTION :SYSTEM ∴ 'NIL) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU :TEST) :TYPED-VOIDS ((:YOU :EXPLICIT) (:TEST :EXPLICIT))
-      :STATUS :BLOCKED :INTENT :EXECUTE :QUESTIONS
-      ("I need to resolve YOU before I can proceed."
-       "I need to resolve TEST before I can proceed.")
-      :ASSUMPTIONS NIL :SUBJECT NIL)
-     (:TASK-FACTS
-      (FACT :TASK-DEFAULT-SESSION-3984632371-5860 :STATUS :BLOCKED :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632371-5860 IS-A :EXECUTE :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632371-5860 REQUIRES :YOU :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632371-5860 REQUIRES :TEST :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632371-5860 :PENDING-QUESTION
-            "I need to resolve YOU before I can proceed." :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632371-5860 :PENDING-QUESTION
-            "I need to resolve TEST before I can proceed." :EPHEMERAL)))
-  0.000 ✔   (true (task-p task-id))
-  0.000 ✘   (is equal (task-intent task-id) :verify-result)
-  0.000 ✘   (is equal (task-status task-id) :draft)
-  1.582 ✘ HI::HANDLE-INPUT-STRING-TEST
-        ？ HI::HANDLE-INPUT-WITH-CONTEXT-TEST
-[Input] Pipeline Trace:
-  [INPUT]:
-    "summarize"
-  [EIL]:
-    ((:SUMMARIZE (:NIL 'NIL) '((:VERBFORM :INF))))
-  [EAIL]:
-    ((IMPLIES (IS-A ((† :YOU ∴ '((:IMPLICIT T))) 'NIL) (:NIL 'NIL) 'NIL)
-      (IS-A ((† :YOU ∴ 'NIL) 'NIL) (:SUMMARY ∴) 'NIL) '((:SUMMARY ∴))
-      '((:VERBFORM :INF))))
-  [SAIL]:
-    ((IMPLIES (IS-A ((† :YOU ∴ '((:IMPLICIT T))) 'NIL) (:NIL 'NIL) 'NIL)
-      (IS-A ((† :YOU ∴ 'NIL) 'NIL) (:SUMMARY 'NIL) 'NIL) '((:SUMMARY ∴))
-      '((:VERBFORM :INF))))
-  [FACTS]:
-    ((FACT :YOU :STATUS ∴ :EPHEMERAL) (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-     (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-     (FACT :S1 :FORM :STATE :EPHEMERAL)
-     (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-     (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-     (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-     (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL) (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-     (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-     (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-     (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-     (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL))
-  [REASONING]:
-    ((:INPUT :TASK-ID :TASK-DEFAULT-SESSION-3984632373-6906 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL)))
-     (:VOIDS :TASK-ID :TASK-DEFAULT-SESSION-3984632373-6906 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU))
-     (:TYPED :TASK-ID :TASK-DEFAULT-SESSION-3984632373-6906 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU) :TYPED-VOIDS ((:YOU :EXPLICIT)) :STATUS :BLOCKED)
-     (:INTENT :TASK-ID :TASK-DEFAULT-SESSION-3984632373-6906 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU) :TYPED-VOIDS ((:YOU :EXPLICIT)) :STATUS :BLOCKED
-      :INTENT :EXECUTE)
-     (:META :TASK-ID :TASK-DEFAULT-SESSION-3984632373-6906 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU) :TYPED-VOIDS ((:YOU :EXPLICIT)) :STATUS :BLOCKED
-      :INTENT :EXECUTE :QUESTIONS
-      ("I need to resolve YOU before I can proceed.") :ASSUMPTIONS NIL)
-     (:SUBJECT :TASK-ID :TASK-DEFAULT-SESSION-3984632373-6906 :FACTS
-      ((FACT :YOU :STATUS ∴ :EPHEMERAL)
-       (FACT :YOU :REPRESENTATION ∴ :EPHEMERAL)
-       (FACT :YOU :IMPLICIT T :EPHEMERAL) (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :S1 :FORM :STATE :EPHEMERAL)
-       (FACT :S1 IS-A (FACT :YOU IS-A :NIL :EPHEMERAL) :EPHEMERAL)
-       (FACT :S2 :PILLAR :SYSTEM :EPHEMERAL) (FACT :S2 :FORM :STATE :EPHEMERAL)
-       (FACT :S2 IS-A (FACT :YOU IS-A :SUMMARY :EPHEMERAL) :EPHEMERAL)
-       (FACT :A1 :PILLAR :SYSTEM :EPHEMERAL)
-       (FACT :A1 :FORM :BRIDGE :EPHEMERAL)
-       (FACT :A1 IS-A (:SUMMARY ∴) :EPHEMERAL)
-       (FACT :A1 IMPLIES (:S1 :S2) :EPHEMERAL)
-       (FACT :A1 :VERBFORM :INF :EPHEMERAL)
-       (FACT :S1 (:SUMMARY ∴) :S2 :EPHEMERAL))
-      :VOID-LIST (:YOU) :TYPED-VOIDS ((:YOU :EXPLICIT)) :STATUS :BLOCKED
-      :INTENT :EXECUTE :QUESTIONS
-      ("I need to resolve YOU before I can proceed.") :ASSUMPTIONS NIL :SUBJECT
-      NIL)
-     (:TASK-FACTS
-      (FACT :TASK-DEFAULT-SESSION-3984632373-6906 :STATUS :BLOCKED :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632373-6906 IS-A :EXECUTE :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632373-6906 REQUIRES :YOU :EPHEMERAL)
-      (FACT :TASK-DEFAULT-SESSION-3984632373-6906 :PENDING-QUESTION
-            "I need to resolve YOU before I can proceed." :EPHEMERAL)))
-  0.000 ✔   (true (task-p task-id))
-  0.000 ✔   (true (> (length *working-ontology*) 5))
-  1.626 ✔ HI::HANDLE-INPUT-WITH-CONTEXT-TEST
-        ？ HI::SERVER-API-TASK-TEST
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-[Curiosity] Thread started.
-Server started on port 8081
-Dashboard available at http://localhost:8081/dashboard/
-[Curiosity] Background enrichment for :WEBSITE in session default-session (Score: 1)...
-[Learning] Coordinate Projection FAILED for website. LLM returned: "(∆:∴ (:project '()) (:status :verify-result '()) '((tense \"imp\")))"
-[Curiosity] Finished enriching :WEBSITE.
-[API] Received task request for session default-session: "test this project"
+  0.005 ✔   (is eq test-root (root-for-word test-word))
+  0.045 ✔ HI::ACCOMMODATE-CONCEPT-TEST
+        ？ HI::TEST-EAIL-FROM-FIXTURES
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.006 ✔ HI::TEST-EAIL-FROM-FIXTURES
+        ？ HI::SAIL-UNIT-TESTS
+        ？   HI::TEST-SAIL-FROM-FIXTURES
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.006 ✔   HI::TEST-SAIL-FROM-FIXTURES
+  0.006 ✔ HI::SAIL-UNIT-TESTS
+        ？ HI::SAIL-TO-FACTS-UNIT-TESTS
+        ？   HI::TEST-SAIL-TO-FACTS-FROM-FIXTURES
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (is = (length expected-facts) (length actual-facts))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
+  0.049 ✔   HI::TEST-SAIL-TO-FACTS-FROM-FIXTURES
+  0.049 ✔ HI::SAIL-TO-FACTS-UNIT-TESTS
+
+;; Summary:
+Passed:   361
+Failed:     0
+Skipped:    0
+; 
+; compilation unit finished
+;   caught 1 STYLE-WARNING condition
+;   printed 4 notes

@@ -1,16 +1,16 @@
 (in-package #:hi)
 
-(defun get-eail-test-14 ()
+(defun get-eail-test-15 ()
   (list
-   :number 14
-   :description "Property Void (What color is X)"
-   :text "What color is the sky?"
+   :number 15
+   :description "Property Void (What color is X) without question mark"
+   :text "What color is the sky"
    :eil '((:BE (:NIL 'NIL) (:COLOR '((:NUMBER :SING) (:DET :WHAT)))
            (:SKY '((:NUMBER :SING) (:DET :THE)))
-           '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN) (:PUNCT :?))))
-   :eail '(∆:IS-A (:SKY 'NIL) (:COLOR hi-ontology:∴) '((:PUNCT :?)))
+           '((:MOOD :IND) (:NUMBER :SING) (:PERSON :|3|) (:TENSE :PRES) (:VERBFORM :FIN))))
+   :eail '(∆:IS-A (:SKY 'NIL) (:COLOR hi-ontology:∴) 'NIL)
    :sail '(∆:IS-A ((∆:√ :SKY :ATMOSPHERE :STATE :SYSTEM 'NIL 'NIL) 'NIL)
-           ((∆:√ :COLOR :PHYSICAL-NATURE :STATE :CONCEPT hi-ontology:∴ 'NIL) 'NIL) '((:PUNCT :?)))
+           ((∆:√ :COLOR :PHYSICAL-NATURE :STATE :CONCEPT hi-ontology:∴ 'NIL) 'NIL) 'NIL)
    :facts '((FACT :SKY :PILLAR :SYSTEM :EPHEMERAL)
             (FACT :SKY :FORM :STATE :EPHEMERAL)
             (FACT :SKY :ROOT :ATMOSPHERE :EPHEMERAL)
@@ -21,5 +21,4 @@
             (FACT :COLOR :REPRESENTATION ∴ :EPHEMERAL)
             (FACT :S1 :PILLAR :SYSTEM :EPHEMERAL)
             (FACT :S1 :FORM :STATE :EPHEMERAL)
-            (FACT :S1 ∆:IS-A (FACT :SKY ∆:IS-A (:COLOR :PHYSICAL-NATURE :STATE :CONCEPT ∴ 'NIL) :EPHEMERAL) :EPHEMERAL)
-            (FACT :S1 :PUNCT :? :EPHEMERAL))))
+            (FACT :S1 ∆:IS-A (FACT :SKY ∆:IS-A (:COLOR :PHYSICAL-NATURE :STATE :CONCEPT ∴ 'NIL) :EPHEMERAL) :EPHEMERAL))))
