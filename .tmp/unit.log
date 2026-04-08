@@ -29,48 +29,45 @@ WARNING:
                                                           #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
 WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
 WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
-; compiling file "/Users/micahsmith/dev/hi/src/eail.lisp" (written 08 APR 2026 06:42:38 AM):
+; compiling file "/Users/micahsmith/dev/hi/src/task.lisp" (written 08 APR 2026 11:17:28 AM):
 
-; file: /Users/micahsmith/dev/hi/src/eail.lisp
-; in: DEFUN %RESOLVE-TOKEN-TO-†
-;     'NIL
-; 
-; note: deleting unreachable code
-
-; in: DEFUN %GET-NODE-PROPS
-;     'NIL
-; 
-; note: deleting unreachable code
-
-; in: DEFUN %CLEAN-PROPS
-;     'NIL
-; 
-; note: deleting unreachable code
-
-; in: DEFUN %CLEAN-GLOBAL-MODS
-;     'NIL
-; 
-; note: deleting unreachable code
-
-; in: DEFUN %COMPILE-BE-VERB
-;     (HI-EAIL::IS-QUESTION (ASSOC :PUNCT HI-EAIL::MODIFIERS))
+; file: /Users/micahsmith/dev/hi/src/task.lisp
+; in: DEFUN %BIND-TASK-INTENT-TRACE
+;     (DEFUN HI-TASK::%BIND-TASK-INTENT-TRACE (HI-TASK::TASK-ID HI-TASK::STATE)
+;       "Run the intent pipeline and return the raw capture-> trace."
+;       (HI:CAPTURE+TAP-> HI-TASK::STATE :VOIDS (HI-TASK:%FIND-ALL-VOIDS) :TYPED
+;                         (HI-TASK:%TYPE-VOIDS) :INTENT (HI-TASK:%DETERMINE-INTENT)
+;                         :META (HI-TASK:%GENERATE-META-REASONING) :SUBJECT
+;                         (HI-TASK:%DETERMINE-SUBJECT) ...))
+; --> SB-IMPL::%DEFUN SB-IMPL::%DEFUN SB-INT:NAMED-LAMBDA 
+; ==>
+;   #'(SB-INT:NAMED-LAMBDA HI-TASK::%BIND-TASK-INTENT-TRACE
+;         (HI-TASK::TASK-ID HI-TASK::STATE)
+;       (DECLARE (SB-C::TOP-LEVEL-FORM))
+;       "Run the intent pipeline and return the raw capture-> trace."
+;       (BLOCK HI-TASK::%BIND-TASK-INTENT-TRACE
+;         (HI:CAPTURE+TAP-> HI-TASK::STATE :VOIDS (HI-TASK:%FIND-ALL-VOIDS)
+;                           :TYPED (HI-TASK:%TYPE-VOIDS) :INTENT
+;                           (HI-TASK:%DETERMINE-INTENT) :META
+;                           (HI-TASK:%GENERATE-META-REASONING) :SUBJECT
+;                           (HI-TASK:%DETERMINE-SUBJECT) ...)))
 ; 
 ; caught STYLE-WARNING:
-;   The variable IS-QUESTION is defined but never used.
+;   The variable TASK-ID is defined but never used.
 
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/eail-tmpAAURSO1.fasl
-; compilation finished in 0:00:00.035
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/task-tmpAAURSO1.fasl
+; compilation finished in 0:00:00.013
 WARNING:
    Lisp compilation had style-warnings while
-   compiling #<CL-SOURCE-FILE "hi" "src" "eail">
+   compiling #<CL-SOURCE-FILE "hi" "src" "task">
 [Calculus] Reasoning layer initialized.
 [Scanners] Subsystem initialized.
 ; compiling file "/Users/micahsmith/dev/hi/tests/test-lexicon.lisp" (written 07 APR 2026 11:34:47 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/test-lexicon-tmp5GEXGEG5.fasl
 ; compilation finished in 0:00:00.001
-; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 08 APR 2026 05:06:14 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 08 APR 2026 11:02:31 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/util-tests-tmpAR3FSGEY.fasl
 ; compilation finished in 0:00:00.007
@@ -85,7 +82,7 @@ WARNING:
 ; compiling file "/Users/micahsmith/dev/hi/tests/eail-tests.lisp" (written 08 APR 2026 06:40:48 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmp9V47YWQF.fasl
-; compilation finished in 0:00:00.005
+; compilation finished in 0:00:00.006
 ; compiling file "/Users/micahsmith/dev/hi/tests/sail-tests.lisp" (written 08 APR 2026 06:40:56 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp9BN22RMA.fasl
@@ -97,11 +94,11 @@ WARNING:
         ？ HI::ACCOMMODATE-CONCEPT-TEST
 [Calculus] Reasoning layer initialized.
   0.015 ✔   (false (member test-root (solve-for-void test-form test-pillar)))
-[Calculus] Accommodated new concept into Postgres: :TESTWORD3984633776 -> (:TESTROOT3984633776 :PATIENT :SYSTEM)
-  0.007 ✔   (true (member test-root (solve-for-void test-form test-pillar)))
+[Calculus] Accommodated new concept into Postgres: :TESTWORD3984650259 -> (:TESTROOT3984650259 :PATIENT :SYSTEM)
+  0.006 ✔   (true (member test-root (solve-for-void test-form test-pillar)))
   0.006 ✔   (is eq test-word (word-for-form test-root test-form))
-  0.005 ✔   (is eq test-root (root-for-word test-word))
-  0.045 ✔ HI::ACCOMMODATE-CONCEPT-TEST
+  0.004 ✔   (is eq test-root (root-for-word test-word))
+  0.051 ✔ HI::ACCOMMODATE-CONCEPT-TEST
         ？ HI::TEST-EAIL-FROM-FIXTURES
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
@@ -118,7 +115,7 @@ WARNING:
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
-  0.006 ✔ HI::TEST-EAIL-FROM-FIXTURES
+  0.007 ✔ HI::TEST-EAIL-FROM-FIXTURES
         ？ HI::SAIL-UNIT-TESTS
         ？   HI::TEST-SAIL-FROM-FIXTURES
   0.000 ✔     (is equal expected-sail actual-sail)
@@ -467,8 +464,8 @@ WARNING:
   0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
   0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
   0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.049 ✔   HI::TEST-SAIL-TO-FACTS-FROM-FIXTURES
-  0.049 ✔ HI::SAIL-TO-FACTS-UNIT-TESTS
+  0.050 ✔   HI::TEST-SAIL-TO-FACTS-FROM-FIXTURES
+  0.050 ✔ HI::SAIL-TO-FACTS-UNIT-TESTS
 
 ;; Summary:
 Passed:   361
@@ -477,4 +474,3 @@ Skipped:    0
 ; 
 ; compilation unit finished
 ;   caught 1 STYLE-WARNING condition
-;   printed 4 notes
