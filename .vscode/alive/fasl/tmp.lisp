@@ -1,188 +1,273 @@
-(in-package :hi)
+(in-package #:hi-task)
 
-(defparameter *current-workspace* nil
-  "The root directory path for the current project being analyzed. If nil, no workspace is injected.")
+;;; IR / IL v1: Graph-Native Tasks
+;;; --------------------------------------------------------------------------
+;;; We eliminate the rigid (task ...) data structure. A task is now simply an 
+;;; entity (e.g., :this-task) embedded directly within the global state graph.
+;;; We query the graph to access its properties, unifying tasks with standard ERV logic.
 
-;; user input data model
+(defparameter *user-intents*
+  '(:verify-result
+    :summarize
+    :transform-state
+    :repair-state)
+  "External orthogonal vectors representing macro-level human goals.")
 
-(defclass input-data ()
-  ((source
-    :initarg :source
-    :accessor input-data-source
-    :type t
-    :documentation "Origin of the input (e.g. :cli, :file, :http, :repl).")
-   (data
-    :initarg :data
-    :accessor input-data-data
-    :type t
-    :documentation "Input payload. Can be any type (string, list, map, etc.).")
-   (context
-    :initarg :context
-    :initform nil
-    :accessor input-data-context
-    :type list
-    :documentation "Optional list of context items (files, URLs, etc.)."))
-  (:documentation "Represents user-provided input with a source, data payload, and optional context."))
+(defparameter *system-directives*
+  '(:determine-success-criteria
+    :generate-plan)
+  "Internal pipeline transitions not exposed to the LLM classifier.")
 
-(defun make-input-data (&key source data context)
-  "Create an INPUT-DATA instance with flexible :source, :data types, and optional :context."
-  (make-instance 'input-data :source source :data data :context context))
+(defparameter *known-intents*
+  (append *user-intents* *system-directives*)
+  "The union of all valid intent symbols for the planning IR.")
 
-(defgeneric handle-input (source data &key context resume-task-id)
-  (:documentation "Dispatch on SOURCE and DATA type to handle input. Returns task-id."))
+(defparameter *known-operators*
+  '(:inspect
+    :execute
+    :infer
+    :decompose
+    :derive
+    :verify
+    :repair
+    :summarize
+    :compare
+    :select
+    :ask-user
+    'hi-ontology:∴)
+  "Initial allowed plan operators for the planning IR.")
 
-(defun %classify-context-item (task-id item)
-  "Heuristically classify a context string into an ontological type."
-  (let ((entity (if (or (uiop:string-prefix-p "http://" item)
-                        (uiop:string-prefix-p "https://" item))
-                    (intern item :keyword)
-                    (path->entity item))))
-    (cond
-      ((or (uiop:string-prefix-p "http://" item)
-           (uiop:string-prefix-p "https://" item))
-       (list (fact entity :type :url :ephemeral)
-             (fact task-id :user-context entity :ephemeral)))
-      ((uiop:directory-exists-p item)
-       (list (fact entity :type :directory :ephemeral)
-             (fact task-id :user-context entity :ephemeral)))
-      ((uiop:file-exists-p item)
-       (list (fact entity :type :file :ephemeral)
-             (fact task-id :user-context entity :ephemeral)))
-      (t
-       (list (fact entity :type :unknown-artifact :ephemeral)
-             (fact task-id :user-context entity :ephemeral))))))
+(defparameter *known-statuses*
+  '(:draft :ready :verified :failed :summarized :blocked :waiting-on-user :in-progress)
+  "Allowed task lifecycle statuses.")
 
-(defun safe-read-eail (str)
-  "Pre-process the LLM string to convert all namespaced symbols (except ∆:) 
-   into keywords to prevent reader package errors from hallucinations."
-  (let* ((clean-str (extract-lisp-list str))
-         (no-props (cl-ppcre:regex-replace-all "prop:([a-zA-Z0-9\\-]+)" clean-str ":\\1"))
-         (final-str no-props))
-    (let* ((*read-eval* nil)
-           (*package* (find-package :hi))
-           (ast (read-from-string final-str))
-           (approved-physics (list '∆:is-a '∆:requires '∆:implies '∆:∴ '∆:∆)))
-      ;; Recursively verify no illegal ∆: symbols exist
-      (labels ((verify-ast (node)
-                 (cond
-                   ((consp node)
-                    (verify-ast (car node))
-                    (verify-ast (cdr node)))
-                   ((and (symbolp node) 
-                         (uiop:string-prefix-p "HI-ONTOLOGY:" (symbol-name node))
-                         (not (member node approved-physics)))
-                    (error "LLM Hallucinated illegal physics operator: ~S" node)))))
-        (verify-ast ast))
-      ast)))
+;;; Pure Functional Pipeline for Target Identification
 
-(defun %parse-eil (state)
-  (let ((text (getf state :text)))
-    (append state (list :eil (hi-eil:eng->eil text)))))
+(defun %find-all-voids (state)
+  "Scan the input facts for any entity marked with :STATUS ∴."
+  (let* ((facts (getf state :facts))
+         (voids (remove-if-not (lambda (f) 
+                                 (and (eq (third f) :status) 
+                                      (eq (fourth f) 'hi-ontology:∴)))
+                               facts))
+         (void-entities (mapcar #'second voids)))
+    (append state (list :void-list void-entities))))
 
-(defun %compile-eail (state)
-  (let ((eil (getf state :eil)))
-    (append state (list :eail (mapcar #'hi-eail:eil->eail eil)))))
+(defun %type-voids (state)
+  "Categorize voids as :EXPLICIT, :IMPLICIT, or :UNKNOWABLE based on their topology."
+  ;; For now, everything is :EXPLICIT unless we have logic to prove it's :IMPLICIT.
+  ;; A void is :EXPLICIT if it's the target of a question mark, or the unexecuted action of an imperative.
+  ;; We will refine this heuristic. Defaulting all found voids to :EXPLICIT.
+  (let* ((voids (getf state :void-list))
+         (typed-voids (mapcar (lambda (v) (list v :explicit)) voids))
+         (status (if typed-voids :blocked :ready)))
+    (append state (list :typed-voids typed-voids :status status))))
 
-(defun %ground-sail (state)
-  (let ((eail (getf state :eail)))
-    (append state (list :sail (mapcar #'hi-sail:eail->sail eail)))))
+(defun %determine-intent (state)
+  "Analyze structural nodes (:S[n], :A[n]) to assign :INFER, :EXECUTE, or :INSPECT."
+  (let* ((facts (getf state :facts))
+         (voids (getf state :void-list))
+         ;; Has a question mark? -> :infer
+         (is-question (find-if (lambda (f) (and (eq (third f) :punct) (eq (fourth f) :?))) facts))
+         ;; Has an implicit YOU? -> :execute
+         (has-implicit-you (find-if (lambda (f) (and (eq (second f) :you) (eq (third f) :implicit) (eq (fourth f) 't))) facts))
+         (intent (cond
+                   (is-question :infer)
+                   (has-implicit-you :execute)
+                   (voids :infer)
+                   (t :inspect))))
+    (append state (list :intent intent))))
 
-(defun %emit-facts (state)
-  (let ((sail (getf state :sail)))
-    (append state (list :facts (alexandria:mappend #'hi-sail-to-facts:sail->facts sail)))))
-
-(defun compile-text (state)
-  "Run the STATE plist (containing :text) through the NLP pipeline.
-   Returns the modified STATE plist with :eil, :eail, :sail, and :facts appended."
-  (let ((trace (hi:capture+tap-> state
-                 :eil (%parse-eil)
-                 :eail (%compile-eail)
-                 :sail (%ground-sail)
-                 :facts (%emit-facts))))
-    ;; The final state is the value of the LAST step
-    (cdr (car (last trace)))))
-
-(defun explain-thought (text)
-  "Run a raw English string through the entire cognitive pipeline and print the full trace."
-  (format t "~%~%[COGNITIVE TRACE] \"~A\"~%" text)
-  (format t "------------------------------------------------------------~%")
-  (let* ((task-id (intern (string-upcase (format nil "TASK-~A" (get-universal-time))) :keyword))
-         (initial-state (list :task-id task-id :text text))
-         (nlp-state (compile-text initial-state))
-         (final-state (hi-task::%bind-task-intent-trace task-id nlp-state)))
+(defun %generate-meta-reasoning (state)
+  "Generate :PENDING-QUESTION and :ASSUMPTION based on typed voids."
+  (let* ((typed-voids (getf state :typed-voids))
+         (intent (getf state :intent))
+         (questions '())
+         (assumptions '()))
     
-    (format t "[RESULT] Cognition Balanced. Task ~A is ~A.~%~%" 
-            task-id (getf final-state :status)))
-  t)
+    (dolist (tv typed-voids)
+      (let ((v (first tv))
+            (type (second tv)))
+        (cond
+          ((eq type :explicit)
+           (push (format nil "I need to resolve ~A before I can proceed." v) questions))
+          ((eq type :implicit)
+           (push (format nil "I am assuming default parameters for ~A." v) assumptions)))))
+    
+    ;; Example assumption for implicit intent
+    (when (eq intent :inspect)
+      (push "I am assuming the user is simply stating a fact and requires no immediate action." assumptions))
 
-(defmethod handle-input ((source (eql :cli)) (data string) &key context resume-task-id)
-  ;; Command mode interception
-  (when (and (> (length data) 0) (char= (char data 0) #\/))
-    (let* ((parts (uiop:split-string (string-trim " " data) :separator " "))
-           (cmd (string-downcase (first parts))))
-      (cond
-        ((string= cmd "/clear")
-         (hi-events:reset-json-graph)
-         (clear-session-ontology *session-id*)
-         (ignore-errors
-           (redis:with-connection ()
-             (redis:red-del (hi-events::%session-key "active-task"))))
-         (return-from handle-input :command-clear))
-        ((string= cmd "/help")
-         (return-from handle-input :command-help))
-        (t
-         (return-from handle-input :command-unknown)))))
+    (append state (list :questions (reverse questions) :assumptions (reverse assumptions)))))
 
-  (let* ((task-id (or resume-task-id (intern (string-upcase (format nil "TASK-~A-~A-~A" *session-id* (get-universal-time) (random 10000))) :keyword)))
-         (initial-facts (if resume-task-id '() (list (fact data 'hi-ontology:implies task-id :ephemeral)))))
+(defun %determine-subject (state)
+  "Find the primary entity being operated on."
+  ;; For now, a naive heuristic: find the first material entity that isn't YOU.
+  (let* ((facts (getf state :facts))
+         (material-facts (remove-if-not (lambda (f) (and (eq (third f) :pillar) (eq (fourth f) :material))) facts))
+         (subjects (mapcar #'second material-facts))
+         (primary (find-if (lambda (s) (not (eq s :you))) subjects)))
+    (append state (list :subject primary))))
 
-    (dolist (f initial-facts) (swap-ontology! #'state-add-fact f))
-    (loop for item in context do 
-          (dolist (f (%classify-context-item task-id item))
-            (swap-ontology! #'state-add-fact f)))
+(defun %emit-task-facts (state)
+  "Construct the final task grounding facts from the state trace."
+  (let* ((task-id (getf state :task-id))
+         (intent (getf state :intent))
+         (status (getf state :status))
+         (subject (getf state :subject))
+         (voids (getf state :void-list))
+         (questions (getf state :questions))
+         (assumptions (getf state :assumptions))
+         (task-facts (list
+                      (list 'hi:fact task-id 'hi-ontology:is-a intent :ephemeral)
+                      (list 'hi:fact task-id :status status :ephemeral))))
+    
+    (when subject
+      (push (list 'hi:fact task-id :subject subject :ephemeral) task-facts))
+    
+    (dolist (v voids)
+      (push (list 'hi:fact task-id 'hi-ontology:requires v :ephemeral) task-facts))
+      
+    (dolist (q questions)
+      (push (list 'hi:fact task-id :pending-question q :ephemeral) task-facts))
+      
+    (dolist (a assumptions)
+      (push (list 'hi:fact task-id :assumption a :ephemeral) task-facts))
+      
+    (append state (list :task-facts (reverse task-facts)))))
 
-    (run-active-scanners)
+(defun %bind-task-intent-trace (task-id state)
+  "Run the intent pipeline and return the raw capture-> trace."
+  (hi:capture+tap-> state
+    :voids (%find-all-voids)
+    :typed (%type-voids)
+    :intent (%determine-intent)
+    :meta (%generate-meta-reasoning)
+    :subject (%determine-subject)
+    :task-facts (%emit-task-facts)))
 
-    (when resume-task-id
-      (format t "~&[Socratic] Resuming blocked task ~A...~%" task-id)
-      (swap-ontology! #'state-remove-fact task-id :status :blocked)
-      (swap-ontology! #'state-add-fact (fact task-id :status :draft :ephemeral)))
+(defun bind-task-intent (task-id facts)
+  "Analyze a flat list of semantic facts, determine the overarching intent, 
+   and return a new list combining the semantic facts with task-binding facts."
+  (let ((trace (%bind-task-intent-trace task-id (list :task-id task-id :facts facts))))
+    (append facts (getf (cdr (car (last trace))) :task-facts))))
 
-    (unless resume-task-id
-      (let* ((initial-state (list :task-id task-id :text data))
-             (nlp-state (compile-text initial-state))
-             (reasoning-trace (hi-task::%bind-task-intent-trace task-id nlp-state))
-             ;; The final state is the value of the last step in the trace
-             (final-state (cdr (car (last reasoning-trace))))
-             (final-facts (getf final-state :task-facts)))
-        
-        (dolist (f (getf nlp-state :facts))
-          (swap-ontology! #'state-add-fact f))
-          
-        (dolist (f final-facts)
-          (swap-ontology! #'state-add-fact f))
+(defun plan-step (id operator &rest args)
+  "Construct a plan step.
+A step has the shape: (plan-step <id> (<operator> <arg> ...))."
+  (list 'plan-step id (cons operator args)))
 
-        (swap-ontology! #'state-add-fact (fact task-id :user-input data :ephemeral))))
+(defun plan-step-p (form)
+  "Return true when FORM is a well-shaped plan step."
+  (and (consp form)
+       (eq (first form) 'plan-step)
+       (= (length form) 3)
+       (symbolp (second form))
+       (consp (third form))
+       (symbolp (first (third form)))))
 
-    task-id))
-(defmethod handle-input ((source (eql :file)) (data list) &key context resume-task-id)
-  (declare (ignore source data context resume-task-id))
-  :no-task)
+(defun plan-step-id (form)
+  "Return the id portion of a plan step."
+  (assert (plan-step-p form) (form) "Not a valid plan step: ~S" form)
+  (second form))
 
-(defmethod handle-input ((source (eql :http)) (data fset:map) &key context resume-task-id)
-  (declare (ignore source data context resume-task-id))
-  :no-task)
+(defun plan-step-operation (form)
+  "Return the operation list portion of a plan step."
+  (assert (plan-step-p form) (form) "Not a valid plan step: ~S" form)
+  (third form))
 
-(defmethod handle-input ((source (eql :repl)) (data string) &key context resume-task-id)
-  (handle-input :cli data :context context :resume-task-id resume-task-id))
+(defun plan-step-operator (form)
+  "Return the operator symbol for a plan step."
+  (first (plan-step-operation form)))
 
-(defmethod handle-input ((source t) (data t) &key context resume-task-id)
-  (declare (ignore source data context resume-task-id))
-  :no-task)
+(defun plan-step-args (form)
+  "Return the argument list for a plan step."
+  (rest (plan-step-operation form)))
 
-(defun dispatch-input-data (input &key resume-task-id)
-  "Route INPUT-DATA by its :source and :data type."
-  (handle-input (input-data-source input)
-                (input-data-data input)
-                :context (input-data-context input)
-                :resume-task-id resume-task-id))
+;;; Task Accessors (Graph Queries)
+
+(defun task-p (entity &optional (state hi:*working-ontology*))
+  "Return true if ENTITY has an intent in the STATE, marking it as a task."
+  (not (null (task-intent entity state))))
+
+(defun task-section-value (entity section-name &optional (state hi:*working-ontology*))
+  "Query the STATE for the singular value of SECTION-NAME attached to ENTITY.
+Returns the most recently added value (the last one chronologically)."
+  (let ((matches (hi-fact:state-find-by-relation section-name state))
+        (result nil))
+    (dolist (f matches)
+      (when (eq (hi-fact:fact-entity f) entity)
+        (setf result (hi-fact:fact-value f))))
+    result))
+
+(defun task-prompt (entity &optional (state hi:*working-ontology*))
+  "Return the human language prompt for the task."
+  (let ((matches (hi-fact:state-find-by-relation 'hi-ontology:implies state)))
+    (dolist (f matches)
+      (when (and (eq (hi-fact:fact-value f) entity)
+                 (stringp (hi-fact:fact-entity f)))
+        (return-from task-prompt (hi-fact:fact-entity f))))
+    nil))
+
+(defun task-eil (entity &optional (state hi:*working-ontology*))
+  "Return the EAIL/EIL AST for the task."
+  (task-section-value entity :eil state))
+
+(defun task-intent (entity &optional (state hi:*working-ontology*))
+  "Return the task intent symbol (which it is-a)."
+  (let ((matches (hi-fact:state-find-by-relation 'hi-ontology:is-a state)))
+    (dolist (f matches)
+      (when (eq (hi-fact:fact-entity f) entity)
+        (let ((val (hi-fact:fact-value f)))
+          (when (or (known-intent-p val) (known-operator-p val))
+            (return-from task-intent val)))))
+    nil))
+
+(defun task-status (entity &optional (state hi:*working-ontology*))
+  "Return the task status symbol."
+  (task-section-value entity :status state))
+
+(defun task-interaction (entity &optional (state hi:*working-ontology*))
+  "Return the structured interaction request plist when waiting on user."
+  (task-section-value entity :interaction state))
+
+(defun task-plan (entity &optional (state hi:*working-ontology*))
+  "Return the plan entity produced by the task."
+  (let ((matches (hi-fact:state-find-by-relation 'hi-ontology:implies state)))
+    (dolist (f matches)
+      (when (eq (hi-fact:fact-entity f) entity)
+        (let ((val (hi-fact:fact-value f)))
+          (when (and (symbolp val) (uiop:string-prefix-p "PLAN-" (symbol-name val)))
+            (return-from task-plan val)))))
+    nil))
+
+(defun known-intent-p (intent)
+  "Return true when INTENT is in the current intent registry."
+  (not (null (member intent *known-intents* :test #'eq))))
+
+(defun known-operator-p (operator)
+  "Return true when OPERATOR is in the current operator registry."
+  (not (null (member operator *known-operators* :test #'eq))))
+
+(defun known-status-p (status)
+  "Return true when STATUS is in the current status registry."
+  (not (null (member status *known-statuses* :test #'eq))))
+
+(defun valid-task-p (entity &optional (state hi:*working-ontology*))
+  "Return true when ENTITY is structurally and semantically a valid task in STATE."
+  (and (task-p entity state)
+       (let ((intent (task-intent entity state))
+             (status (task-status entity state)))
+         (and (symbolp intent)
+              (known-intent-p intent)
+              (symbolp status)
+              (known-status-p status)))))
+
+(defun demo-task-facts ()
+  "Return a list of facts representing a demo task."
+  (list
+   (hi:fact :this-task 'hi-ontology:is-a :determine-success-criteria :ephemeral)
+   (hi:fact :this-task :status :draft :ephemeral)
+   (hi:fact :this-task :prompt "demo" :ephemeral)
+   (hi:fact :website :status :in-progress :ephemeral)
+   (hi:fact :website :type :file :ephemeral)))
