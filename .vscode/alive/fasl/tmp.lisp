@@ -101,13 +101,27 @@
     (append state (list :questions (reverse questions) :assumptions (reverse assumptions)))))
 
 (defun %determine-subject (state)
-  "Find the primary entity being operated on."
-  ;; For now, a naive heuristic: find the first material entity that isn't YOU.
+  "Find the primary entity being operated on from the raw facts."
   (let* ((facts (getf state :facts))
-         (material-facts (remove-if-not (lambda (f) (and (eq (third f) :pillar) (eq (fourth f) :material))) facts))
-         (subjects (mapcar #'second material-facts))
-         (primary (find-if (lambda (s) (not (eq s :you))) subjects)))
-    (append state (list :subject primary))))
+         (subject nil))
+    (dolist (f facts)
+      (let* ((entity (second f))
+             (relation (third f))
+             (value (fourth f)))
+        (when (and (symbolp entity) (eq relation 'hi-ontology:is-a) (listp value) (eq (first value) 'hi-fact:fact))
+          (let ((nested-entity (second value))
+                (nested-relation (third value))
+                (nested-value (fourth value)))
+            (if (member nested-entity '(:you :implicit :what :how :when))
+                ;; The entity is a question/variable, so the subject is the object!
+                (when (and (symbolp nested-value) (not (member nested-value '(:you :implicit :what :how :when))))
+                  (setf subject nested-value)
+                  (return))
+                ;; The entity is the subject
+                (when (symbolp nested-entity)
+                  (setf subject nested-entity)
+                  (return)))))))
+    (append state (list :subject subject))))
 
 (defun %emit-task-facts (state)
   "Construct the final task grounding facts from the state trace."
