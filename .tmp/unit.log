@@ -29,86 +29,81 @@ WARNING:
                                                           #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
 WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
 WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
-; compiling file "/Users/micahsmith/dev/hi/src/tools/ops/infer-from-void.lisp" (written 10 APR 2026 06:37:53 AM):
-
-; file: /Users/micahsmith/dev/hi/src/tools/ops/infer-from-void.lisp
-; in: DEFUN OP/INFER-FROM-VOID
-;     (HI::_
-;      (FORMAT T "~&[Tool] Current existing facts for ~S: ~S~%" HI::TARGET
-;              HI::EXISTING-FACTS))
-; 
-; caught STYLE-WARNING:
-;   The variable _ is defined but never used.
-
-
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/tools/ops/infer-from-void-tmpAAURSO1.fasl
-; compilation finished in 0:00:00.009
-WARNING:
-   Lisp compilation had style-warnings while
-   compiling #<CL-SOURCE-FILE "hi" "src" "tools" "ops" "infer-from-void">
+WARNING: redefining HI:LOG-LLM in DEFUN
+WARNING: redefining HI::WITH-LOG in DEFMACRO
+WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 [Calculus] Reasoning layer initialized.
 [Scanners] Subsystem initialized.
 ; compiling file "/Users/micahsmith/dev/hi/tests/test-lexicon.lisp" (written 07 APR 2026 11:34:47 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/test-lexicon-tmp5GEXGEG5.fasl
-; compilation finished in 0:00:00.001
-; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 08 APR 2026 11:02:31 AM):
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/test-lexicon-tmpAAURSO1.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 12 APR 2026 11:35:22 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/util-tests-tmpAR3FSGEY.fasl
-; compilation finished in 0:00:00.015
-; compiling file "/Users/micahsmith/dev/hi/tests/calculus-tests.lisp" (written 01 APR 2026 07:05:07 AM):
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/util-tests-tmp5GEXGEG5.fasl
+; compilation finished in 0:00:00.018
+; compiling file "/Users/micahsmith/dev/hi/tests/task-tests.lisp" (written 11 APR 2026 10:28:43 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/calculus-tests-tmpJAIDFZTC.fasl
-; compilation finished in 0:00:00.001
-; compiling file "/Users/micahsmith/dev/hi/tests/task-tests.lisp" (written 07 APR 2026 08:18:58 PM):
-
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/task-tests-tmp8V3J6PE9.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/task-tests-tmpAR3FSGEY.fasl
 ; compilation finished in 0:00:00.008
 ; compiling file "/Users/micahsmith/dev/hi/tests/eail-tests.lisp" (written 08 APR 2026 06:40:48 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmp9V47YWQF.fasl
-; compilation finished in 0:00:00.005
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmpJAIDFZTC.fasl
+; compilation finished in 0:00:00.006
 ; compiling file "/Users/micahsmith/dev/hi/tests/sail-tests.lisp" (written 08 APR 2026 06:40:56 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp9BN22RMA.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp8V3J6PE9.fasl
 ; compilation finished in 0:00:00.002
-; compiling file "/Users/micahsmith/dev/hi/tests/sail-to-facts-tests.lisp" (written 08 APR 2026 06:41:04 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/assimilate.lisp" (written 11 APR 2026 10:25:54 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-to-facts-tests-tmp1CXFJSK9.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/assimilate-tmp9V47YWQF.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/project.lisp" (written 11 APR 2026 10:26:05 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/project-tmp9BN22RMA.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/stabilize.lisp" (written 12 APR 2026 11:38:26 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/stabilize-tmp1CXFJSK9.fasl
 ; compilation finished in 0:00:00.003
-; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/stabilize.lisp" (written 09 APR 2026 10:07:31 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/transduce.lisp" (written 12 APR 2026 11:37:26 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/stabilize-tmpX4BRKI0R.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/transduce-tmpX4BRKI0R.fasl
+; compilation finished in 0:00:00.001
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/hypothesize.lisp" (written 12 APR 2026 11:37:26 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/hypothesize-tmpQ371UGST.fasl
+; compilation finished in 0:00:00.001
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/detect.lisp" (written 11 APR 2026 10:26:12 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/detect-tmp2OWI3Q7U.fasl
+; compilation finished in 0:00:00.002
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/plan.lisp" (written 11 APR 2026 10:26:19 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/plan-tmp9KKTJMYV.fasl
 ; compilation finished in 0:00:00.003
-; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/context.lisp" (written 09 APR 2026 10:03:29 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/execute.lisp" (written 11 APR 2026 10:26:24 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/context-tmpQ371UGST.fasl
-; compilation finished in 0:00:00.001
-; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/accommodate.lisp" (written 09 APR 2026 10:04:08 AM):
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/execute-tmpJU0JWO19.fasl
+; compilation finished in 0:00:00.005
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/loop.lisp" (written 12 APR 2026 11:38:26 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/accommodate-tmp2OWI3Q7U.fasl
-; compilation finished in 0:00:00.001
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/loop-tmpZX2WN8N4.fasl
+; compilation finished in 0:00:00.004
 ; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/lexicon.lisp" (written 09 APR 2026 01:26:29 PM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/lexicon-tmp9KKTJMYV.fasl
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/lexicon-tmpOU81XRV0.fasl
 ; compilation finished in 0:00:00.002
 ; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/operators.lisp" (written 09 APR 2026 01:26:39 PM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/operators-tmpJU0JWO19.fasl
-; compilation finished in 0:00:00.002
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/operators-tmpY2ML9CFA.fasl
+; compilation finished in 0:00:00.003
 ; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/core.lisp" (written 09 APR 2026 01:46:44 PM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/core-tmpZX2WN8N4.fasl
-; compilation finished in 0:00:00.003
-        ？ HI::ACCOMMODATE-CONCEPT-TEST
-[Calculus] Reasoning layer initialized.
-  0.016 ✔   (false (member test-root (solve-for-void test-form test-pillar)))
-[Calculus] Accommodated new concept into Postgres: :TESTWORD3984806287 -> (:TESTROOT3984806287 :PATIENT :SYSTEM)
-  0.007 ✔   (true (member test-root (solve-for-void test-form test-pillar)))
-  0.007 ✔   (is eq test-word (word-for-form test-root test-form))
-  0.007 ✔   (is eq test-root (root-for-word test-word))
-  0.080 ✔ HI::ACCOMMODATE-CONCEPT-TEST
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/core-tmpX2JYJDQE.fasl
+; compilation finished in 0:00:00.026
         ？ HI::TEST-EAIL-FROM-FIXTURES
+  0.002 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
@@ -123,8 +118,7 @@ WARNING:
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
-  0.000 ✔   (is equal expected-eail actual-eail)
-  0.007 ✔ HI::TEST-EAIL-FROM-FIXTURES
+  0.009 ✔ HI::TEST-EAIL-FROM-FIXTURES
         ？ HI::SAIL-UNIT-TESTS
         ？   HI::TEST-SAIL-FROM-FIXTURES
   0.000 ✔     (is equal expected-sail actual-sail)
@@ -142,344 +136,10 @@ WARNING:
   0.000 ✔     (is equal expected-sail actual-sail)
   0.000 ✔     (is equal expected-sail actual-sail)
   0.000 ✔     (is equal expected-sail actual-sail)
-  0.007 ✔   HI::TEST-SAIL-FROM-FIXTURES
-  0.007 ✔ HI::SAIL-UNIT-TESTS
-        ？ HI::SAIL-TO-FACTS-UNIT-TESTS
-        ？   HI::TEST-SAIL-TO-FACTS-FROM-FIXTURES
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (is = (length expected-facts) (length actual-facts))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.000 ✔     (true (find ef actual-facts :test #'same-fact-p))
-  0.026 ✔   HI::TEST-SAIL-TO-FACTS-FROM-FIXTURES
-  0.026 ✔ HI::SAIL-TO-FACTS-UNIT-TESTS
+  0.006 ✔   HI::TEST-SAIL-FROM-FIXTURES
+  0.006 ✔ HI::SAIL-UNIT-TESTS
 
 ;; Summary:
-Passed:   361
+Passed:    30
 Failed:     0
 Skipped:    0
-; 
-; compilation unit finished
-;   caught 1 STYLE-WARNING condition
