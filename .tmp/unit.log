@@ -41,11 +41,11 @@ WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 ; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 12 APR 2026 11:35:22 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/util-tests-tmp5GEXGEG5.fasl
-; compilation finished in 0:00:00.018
+; compilation finished in 0:00:00.019
 ; compiling file "/Users/micahsmith/dev/hi/tests/task-tests.lisp" (written 11 APR 2026 10:28:43 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/task-tests-tmpAR3FSGEY.fasl
-; compilation finished in 0:00:00.008
+; compilation finished in 0:00:00.010
 ; compiling file "/Users/micahsmith/dev/hi/tests/eail-tests.lisp" (written 08 APR 2026 06:40:48 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmpJAIDFZTC.fasl
@@ -53,11 +53,11 @@ WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 ; compiling file "/Users/micahsmith/dev/hi/tests/sail-tests.lisp" (written 08 APR 2026 06:40:56 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp8V3J6PE9.fasl
-; compilation finished in 0:00:00.002
+; compilation finished in 0:00:00.003
 ; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/assimilate.lisp" (written 11 APR 2026 10:25:54 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/assimilate-tmp9V47YWQF.fasl
-; compilation finished in 0:00:00.004
+; compilation finished in 0:00:00.005
 ; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/project.lisp" (written 11 APR 2026 10:26:05 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/project-tmp9BN22RMA.fasl
@@ -77,11 +77,11 @@ WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 ; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/detect.lisp" (written 11 APR 2026 10:26:12 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/detect-tmp2OWI3Q7U.fasl
-; compilation finished in 0:00:00.002
+; compilation finished in 0:00:00.003
 ; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/plan.lisp" (written 11 APR 2026 10:26:19 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/plan-tmp9KKTJMYV.fasl
-; compilation finished in 0:00:00.003
+; compilation finished in 0:00:00.004
 ; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/execute.lisp" (written 11 APR 2026 10:26:24 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/execute-tmpJU0JWO19.fasl
@@ -89,11 +89,11 @@ WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 ; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/loop.lisp" (written 12 APR 2026 11:38:26 AM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/loop-tmpZX2WN8N4.fasl
-; compilation finished in 0:00:00.004
+; compilation finished in 0:00:00.005
 ; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/lexicon.lisp" (written 09 APR 2026 01:26:29 PM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/lexicon-tmpOU81XRV0.fasl
-; compilation finished in 0:00:00.002
+; compilation finished in 0:00:00.003
 ; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/operators.lisp" (written 09 APR 2026 01:26:39 PM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/operators-tmpY2ML9CFA.fasl
@@ -101,7 +101,7 @@ WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 ; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/core.lisp" (written 09 APR 2026 01:46:44 PM):
 
 ; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/core-tmpX2JYJDQE.fasl
-; compilation finished in 0:00:00.026
+; compilation finished in 0:00:00.031
         ？ HI::TEST-EAIL-FROM-FIXTURES
   0.002 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
@@ -118,7 +118,7 @@ WARNING: redefining HI:LOAD-DOMAIN in DEFUN
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
   0.000 ✔   (is equal expected-eail actual-eail)
-  0.009 ✔ HI::TEST-EAIL-FROM-FIXTURES
+  0.014 ✔ HI::TEST-EAIL-FROM-FIXTURES
         ？ HI::SAIL-UNIT-TESTS
         ？   HI::TEST-SAIL-FROM-FIXTURES
   0.000 ✔     (is equal expected-sail actual-sail)
