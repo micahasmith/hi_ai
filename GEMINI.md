@@ -2,6 +2,11 @@
 
 Welcome to the `hi` AGI engine codebase. This project implements a verifiable, self-improving AI engine in Common Lisp based on an Entity-Relation-Value (ERV) graph and driven by a Phenomenal Calculus. 
 
+## Code Modification Protocol
+
+**CRITICAL RULE:** All code changes must go through an approval process. Before modifying any file, you must present the issue in the following format and wait for user approval:
+`PROBLEM -> PROPOSED FIX`
+
 ## Architectural Philosophy (The Phenomenal Calculus)
 
 This system abandons relational database concepts and neural network black boxes in favor of a strictly defined Aristotelian graph. Every piece of knowledge, every operator, every task, and every physical object is mathematically unified into the `*working-ontology*`.
@@ -25,7 +30,8 @@ The engine operates by detecting voids in the graph (represented by the Functor 
 
 ### 1. Common Lisp Standards
 *   For all Lisp code, after defining a function, provide a `#+nil(assert ...)` example immediately following the docstring to demonstrate its usage and allow easy REPL testing. (Skip if output > 5 lines).
-*   Always use the threading macros (`->`, `->>`, `cond->`) from `util.lisp` where they improve readability.
+*   **Composability & Pure Functions:** Write pure, single-purpose functions that are highly composable. Avoid monolithic functions that mix concerns (e.g., parsing an AST *and* generating database tasks in the same function).
+*   **Threading Macros:** You MUST actively use the threading macros (`->`, `->>`, `some->`, `some->>`, `cond->`, etc.) from `util.lisp` to chain pure functions together. This is the primary indicator that the system's architecture is correctly modularized.
 *   The system uses atomic, thread-safe macro wrappers for state mutation (`swap-ontology!`). **Never** mutate the global `*working-ontology*` directly outside of this wrapper.
 
 ### 2. The 4-Tuple Fact Structure
@@ -48,9 +54,19 @@ There is no ambiguity in relations. You must use the correct namespace prefix:
 *   Add unit tests for any new logic to the appropriate file in `tests/`.
 
 ### 5. Multi-Tenant Session Isolation
-The engine supports multi-user concurrency via Redis (`*use-redis-for-ontology*`). 
+The engine supports multi-user concurrency via a Postgres-backed ERV graph. 
 *   Always retrieve the current session state via `(get-session-ontology session-id user-id)`. 
 *   Any newly discovered material or concept must be anchored to the user's specific sub-roots (`user-material-anchor`, `user-concept-anchor`) to prevent cross-user contamination before Phase 3 (Dreaming) consensus.
 
-## Current Development Phase: Phase 2 (Accommodation) & EAIL Parsing
-We are currently moving the English Intermediate Language (EIL) NLP pipeline from an LLM-based hallucination model to a deterministic, rule-based Lisp engine (`src/eil.lisp`) backed by SpaCy (`py/nlp.py`). The goal is to map raw grammatical dependencies deterministically to the `∆:` physics operators.
+## Current Architecture: Phase 7 & 8 (Action & Accommodation Lifecycle)
+
+The system operates via a decoupled agentic lifecycle:
+
+1. **The Master Agentic Loop (`src/lifecycle/loop.lisp`):** Orchestrates the task state through perception, implication, and execution. Catches lexical ignorance traps and triggers taxonomy learning (`hi-learning:learn-taxonomy`).
+2. **The STRIPS Planner (`src/planner/core.lisp` & `operators.lisp`):** Maps the `intent` and `voids` into a sequence of mathematical plan steps, validating terms against the Postgres Lexicon firewall (`src/planner/lexicon.lisp`).
+3. **The Execution Engine (`src/executor.lisp`):** Iterates over generated plan steps and physically invokes the mapped Lisp operators.
+4. **Tooling & Inference (`src/tools/ops/infer-from-void.lisp`):** Resolves voids via a strict fallback hierarchy:
+   - A: Taxonomic Projection
+   - B: Deterministic Postgres Memory Hit-Test
+   - C: pgvector Intuition Hit-Test
+   - D: Focused LLM Hallucination

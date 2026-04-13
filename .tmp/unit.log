@@ -12,6 +12,11 @@ WARNING: redefining QL-SETUP::DUMB-STRING-HASH in DEFUN
 WARNING: redefining QL-SETUP::ASDF-FASL-PATHNAME in DEFUN
 WARNING: redefining QL-SETUP::ENSURE-ASDF-LOADED in DEFUN
 WARNING: System definition file #P"/Users/micahsmith/quicklisp/dists/quicklisp/software/cl-redis-20250622-git/cl-redis.asd" contains definition for system "cl-redis-test". Please only define "cl-redis" and secondary systems with a name starting with "cl-redis/" (e.g. "cl-redis/test") in that file.
+;;; Checking for wide character support... WARNING: Lisp implementation doesn't use UTF-16, but accepts surrogate code points.
+ yes, using code points.
+;;; Checking for wide character support... WARNING: Lisp implementation doesn't use UTF-16, but accepts surrogate code points.
+ yes, using code points.
+;;; Building Closure with CHARACTER RUNES
 WARNING:
    redefining TRIVIAL-GRAY-STREAMS:STREAM-READ-SEQUENCE (#<STANDARD-CLASS CL+SSL::SSL-STREAM>
                                                          #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>
@@ -24,188 +29,117 @@ WARNING:
                                                           #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
 WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
 WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
+WARNING: redefining HI:LOG-LLM in DEFUN
+WARNING: redefining HI::WITH-LOG in DEFMACRO
+WARNING: redefining HI:LOAD-DOMAIN in DEFUN
 [Calculus] Reasoning layer initialized.
 [Scanners] Subsystem initialized.
-; compiling file "/Users/micahsmith/dev/hi/tests/target-tests.lisp" (written 30 MAR 2026 01:58:23 AM):
+; compiling file "/Users/micahsmith/dev/hi/tests/test-lexicon.lisp" (written 07 APR 2026 11:34:47 AM):
 
-; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/target-tests-tmpAAURSO1.fasl
-; compilation finished in 0:00:00.020
-        ？ HI::FACT-CONSTRUCTION
-  0.002 ✔   (is equal (fact :website 'status 'in-progress) '(fact :website status in-progress :ephemeral))
-  0.004 ✔ HI::FACT-CONSTRUCTION
-        ？ HI::DEMO-STATE-TEST
-  0.000 ✔   (true (state-has-fact-p :website 'status 'in-progress :ephemeral (demo-state)))
-  0.000 ✔   (is equal (state-find-by-entity :website (demo-state)) '((fact :website status in-progress :ephemeral) (fact :website framework react :ephemeral)))
-  0.002 ✔ HI::DEMO-STATE-TEST
-        ？ HI::SMOKE-TEST
-  0.000 ✔   (true (smoke-test))
-  0.001 ✔ HI::SMOKE-TEST
-        ？ HI::DEMO-TASK-TEST
-  0.000 ✔   (true (task-p :this-task state))
-  0.000 ✔   (true (valid-task-p :this-task state))
-  0.001 ✔ HI::DEMO-TASK-TEST
-        ？ HI::FILESYSTEM-WORKING
-[Domain] Injecting Lisp physics into Absolute Ontology...
-  0.000 ✔   (true (state-has-fact-p dir-ent :scanner-status :working :ephemeral state))
-  0.000 ✔   (true (state-has-fact-p dir-ent :type :directory :ephemeral state))
-  0.000 ✔   (true (state-has-fact-p dir-ent :path path-str :ephemeral state))
-  0.006 ✔ HI::FILESYSTEM-WORKING
-        ？ HI::FILESYSTEM-FAILED
-  0.000 ✔   (true (state-has-fact-p (path->entity (ensure-directory-pathname "./this-does-not-exist-hopefully/")) :scanner-status :failed :ephemeral state))
-  0.001 ✔ HI::FILESYSTEM-FAILED
-        ？ HI::ACCOMMODATE-CONCEPT-TEST
-[Calculus] Reasoning layer initialized.
-  0.014 ✔   (false (member test-root (solve-for-void test-form test-pillar)))
-[Calculus] Accommodated new concept into Postgres: :TESTWORD3983839113 -> (:TESTROOT3983839113 :PATIENT :SYSTEM)
-  0.009 ✔   (true (member test-root (solve-for-void test-form test-pillar)))
-  0.003 ✔   (is eq test-word (word-for-form test-root test-form))
-  0.003 ✔   (is eq test-root (root-for-word test-word))
-  0.043 ✔ HI::ACCOMMODATE-CONCEPT-TEST
-        ？ HI::LISP-SCANNER-TEST
-  0.000 ✔   (true (state-has-fact-p (path->entity (probe-file "src/package.lisp")) :defines :hi :ephemeral state))
-  0.000 ✔   (true (state-has-fact-p :hi :type :package :ephemeral state))
-  0.002 ✔ HI::LISP-SCANNER-TEST
-        ？ HI::ASDF-SCANNER-TEST
-  0.000 ✔   (true (state-has-fact-p (path->entity (probe-file "hi.asd")) 'defines-system :hi :ephemeral state))
-  0.000 ✔   (true (state-has-fact-p :hi :type 'asdf-system :ephemeral state))
-  0.000 ✔   (true (state-has-fact-p (path->entity (pathname-directory-pathname (probe-file "hi.asd"))) :language :common-lisp :ephemeral state))
-  0.003 ✔ HI::ASDF-SCANNER-TEST
-        ？ HI::RUN-ACTIVE-SCANNERS-BLOCKED
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-[Scanners] Subsystem initialized.
-  0.000 ✔   (true (state-has-fact-p :fs :status :blocked :ephemeral *working-ontology*))
-  0.000 ✔   (true (state-has-fact-p :fs :blocked-by :workspace :ephemeral *working-ontology*))
-  0.002 ✔ HI::RUN-ACTIVE-SCANNERS-BLOCKED
-        ？ HI::STATE-QUERY-TEST
-  0.000 ✔   (is equal (length bindings) 1)
-  0.000 ✔   (is equal (cdr (assoc '?l b)) 'lisp)
-  0.000 ✔   (is equal (cdr (assoc '?p b)) :proj)
-  0.000 ✔   (is equal (cdr (assoc '?t b)) :t1)
-  0.004 ✔ HI::STATE-QUERY-TEST
-        ？ HI::DERIVE-TARGET-STATE-DOGFOOD
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-  0.000 ✔   (true (or (state-has-fact-p :hi-system :status :result-verified :ephemeral target-state) (state-has-fact-p :hi-system :status :verified :ephemeral target-state)))
-  0.060 ✔ HI::DERIVE-TARGET-STATE-DOGFOOD
-        ？ HI::DERIVE-TARGET-STATE-SUMMARIZE
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-  0.000 ✔   (true (state-has-fact-p :my-folder :status :summarized :ephemeral target-state))
-  0.062 ✔ HI::DERIVE-TARGET-STATE-SUMMARIZE
-        ？ HI::DERIVE-IMPLICATIONS-STARTUP
-  0.000 ✔   (true (state-has-fact-p :f :type :startup-script))
-  0.001 ✔ HI::DERIVE-IMPLICATIONS-STARTUP
-        ？ HI::DERIVE-IMPLICATIONS-ASDF
-  0.000 ✔   (true (state-has-fact-p :sys :loads-system :sys))
-  0.001 ✔ HI::DERIVE-IMPLICATIONS-ASDF
-        ？ HI::GENERATE-PLAN-VERIFY-RESULT
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-  0.000 ✔   (true (listp plan))
-  0.000 ✔   (true (find-if (lambda (f) (and (eq (fact-relation f) 'is-a) (eq (fact-value f) :verify-result))) plan))
-  0.059 ✔ HI::GENERATE-PLAN-VERIFY-RESULT
-        ？ HI::GENERATE-PLAN-SUMMARIZE
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-  0.000 ✔   (true (listp plan))
-  0.000 ✔   (true (find :summarize plan :key #'fact-value))
-  0.008 ✔ HI::GENERATE-PLAN-SUMMARIZE
-        ？ HI::EXECUTE-PLAN-BASIC
-[Domain] Injecting Absolute meta-physics into Working Ontology...
-VERIFYING: :MY-FOLDER :STATUS :SUMMARIZED
-  0.000 ✔   (true (listp plan-facts))
-  0.000 ✔   (true (task-p :this-task))
-  0.009 ✔ HI::EXECUTE-PLAN-BASIC
-        ？ HI::OP-EXECUTE-TEST
-  0.000 ✔   (is string= (cdr (assoc :output result)) (format () "hello world~%"))
-  0.000 ✔   (is equal (cdr (assoc :exit-code result)) 0)
-  0.081 ✔ HI::OP-EXECUTE-TEST
-        ？ HI::HANDLE-INPUT-STRING-TEST
-[EAIL] Projected AST: (∴ (:PROJECT 'NIL) (:STATUS :TEST 'NIL)
-                       '((:VERBFORM :INF)))
-[EAIL] Flattened Facts: ((FACT :TASK-DEFAULT-SESSION-3983839113-3354 :SUBJECT
-                               :PROJECT :EPHEMERAL)
-                         (FACT :TASK-DEFAULT-SESSION-3983839113-3354 IS-A
-                               :VERIFY-RESULT :EPHEMERAL)
-                         (FACT :PROJECT :STATUS :TEST :EPHEMERAL))
-  0.000 ✔   (true (task-p task-id))
-  0.000 ✔   (is equal (task-intent task-id) :verify-result)
-  0.000 ✔   (is equal (task-status task-id) :draft)
-  0.836 ✔ HI::HANDLE-INPUT-STRING-TEST
-        ？ HI::HANDLE-INPUT-WITH-CONTEXT-TEST
-[EAIL] Projected AST: (∴ (:THIS-TASK 'NIL) (:STATUS :SUMMARIZE 'NIL)
-                       '((:VERBFORM :INF)))
-[EAIL] Flattened Facts: ((FACT :TASK-DEFAULT-SESSION-3983839114-5860 :SUBJECT
-                               :THIS-TASK :EPHEMERAL)
-                         (FACT :TASK-DEFAULT-SESSION-3983839114-5860 IS-A
-                               :SUMMARIZE :EPHEMERAL)
-                         (FACT :THIS-TASK :STATUS :SUMMARIZE :EPHEMERAL))
-  0.000 ✔   (true (task-p task-id))
-  0.000 ✔   (true (> (length *working-ontology*) 5))
-  0.806 ✔ HI::HANDLE-INPUT-WITH-CONTEXT-TEST
-        ？ HI::SERVER-API-TASK-TEST
-[Calculus] Reasoning layer initialized.
-[Scanners] Subsystem initialized.
-[Curiosity] Thread started.
-Server started on port 8081
-Dashboard available at http://localhost:8081/dashboard/
-[Curiosity] Background enrichment for :THIS-TASK in session test-target-summarize (Score: 2)...
-[Learning] Coordinate Projection FAILED for this-task. LLM returned: "(∆:∴ (:project '()) (:status :verify-result '()) '((tense \"imp\")))"
-[Curiosity] Error enriching :THIS-TASK in session test-target-summarize: The
-                                                                         value
-                                                                           HI-ONTOLOGY:∴
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/test-lexicon-tmpAAURSO1.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/util-tests.lisp" (written 12 APR 2026 11:35:22 AM):
 
-                                                                         is not
-                                                                         of
-                                                                         type
-                                                                           LIST
-[API] Received task request for session default-session: "test this project"
-[EAIL] Projected AST: (HI-ONTOLOGY:∴ (:PROJECT 'NIL) (:STATUS :TEST 'NIL)
-                       '((:VERBFORM :INF)))
-[EAIL] Flattened Facts: ((HI:FACT :TASK-DEFAULT-SESSION-3983839115-6906
-                                  :SUBJECT :PROJECT :EPHEMERAL)
-                         (HI:FACT :TASK-DEFAULT-SESSION-3983839115-6906
-                                  HI-ONTOLOGY:IS-A :VERIFY-RESULT :EPHEMERAL)
-                         (HI:FACT :PROJECT :STATUS :TEST :EPHEMERAL))
-[Curiosity] Background enrichment for :THIS-TASK in session test-target-dogfood (Score: 2)...
-[Learning] Coordinate Projection FAILED for this-task. LLM returned: "(∆:∴ (:project '()) (:status :verify-result '()) '((tense \"imp\")))"
-[Curiosity] Error enriching :THIS-TASK in session test-target-dogfood: The
-                                                                       value
-                                                                         HI-ONTOLOGY:∴
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/util-tests-tmp5GEXGEG5.fasl
+; compilation finished in 0:00:00.019
+; compiling file "/Users/micahsmith/dev/hi/tests/task-tests.lisp" (written 11 APR 2026 10:28:43 AM):
 
-                                                                       is not
-                                                                       of type
-                                                                         LIST
-[API] Task complete for session default-session, ID: TASK-DEFAULT-SESSION-3983839115-6906
-127.0.0.1 - [2026-03-30 01:58:37] "POST /api/task HTTP/1.1" 200 352 "-" "Dexador/0.9.15 (SBCL 2.6.1); Darwin; 25.2.0"
-  0.000 ✔   (true (hash-table-p parsed))
-  0.000 ✔   (is string= ":VERIFY-RESULT" (gethash "intent" parsed))
-  0.000 ✔   (true (gethash "status" parsed))
-  0.000 ✔   (true (gethash "execution_log" parsed))
-[Curiosity] Thread stopped.
-Server stopped.
-  1.879 ✔ HI::SERVER-API-TASK-TEST
-        ？ HI::EIL-BASIC-STATE
-  0.000 ✔   (is string= exp-str ast-str)
-  0.800 ✔ HI::EIL-BASIC-STATE
-        ？ HI::EIL-TRANSITIVE
-  0.000 ✔   (is string= exp-str ast-str)
-  0.810 ✔ HI::EIL-TRANSITIVE
-        ？ HI::EIL-INTERROGATIVE
-  0.000 ✔   (is string= exp-str ast-str)
-  0.796 ✔ HI::EIL-INTERROGATIVE
-        ？ HI::EIL-IMPERATIVE
-  0.000 ✔   (is string= exp-str ast-str)
-  0.787 ✔ HI::EIL-IMPERATIVE
-        ？ HI::EIL-PREPOSITIONAL
-  0.000 ✔   (is string= exp-str ast-str)
-  0.784 ✔ HI::EIL-PREPOSITIONAL
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/task-tests-tmpAR3FSGEY.fasl
+; compilation finished in 0:00:00.008
+; compiling file "/Users/micahsmith/dev/hi/tests/eail-tests.lisp" (written 08 APR 2026 06:40:48 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/eail-tests-tmpJAIDFZTC.fasl
+; compilation finished in 0:00:00.006
+; compiling file "/Users/micahsmith/dev/hi/tests/sail-tests.lisp" (written 08 APR 2026 06:40:56 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/sail-tests-tmp8V3J6PE9.fasl
+; compilation finished in 0:00:00.003
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/assimilate.lisp" (written 11 APR 2026 10:25:54 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/assimilate-tmp9V47YWQF.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/project.lisp" (written 11 APR 2026 10:26:05 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/project-tmp9BN22RMA.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/stabilize.lisp" (written 12 APR 2026 11:38:26 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/stabilize-tmp1CXFJSK9.fasl
+; compilation finished in 0:00:00.003
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/transduce.lisp" (written 12 APR 2026 11:37:26 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/transduce-tmpX4BRKI0R.fasl
+; compilation finished in 0:00:00.001
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/hypothesize.lisp" (written 12 APR 2026 11:37:26 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/hypothesize-tmpQ371UGST.fasl
+; compilation finished in 0:00:00.001
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/detect.lisp" (written 11 APR 2026 10:26:12 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/detect-tmp2OWI3Q7U.fasl
+; compilation finished in 0:00:00.002
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/plan.lisp" (written 11 APR 2026 10:26:19 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/plan-tmp9KKTJMYV.fasl
+; compilation finished in 0:00:00.003
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/execute.lisp" (written 11 APR 2026 10:26:24 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/execute-tmpJU0JWO19.fasl
+; compilation finished in 0:00:00.005
+; compiling file "/Users/micahsmith/dev/hi/tests/lifecycle-tests/loop.lisp" (written 12 APR 2026 11:38:26 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/lifecycle-tests/loop-tmpZX2WN8N4.fasl
+; compilation finished in 0:00:00.004
+; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/lexicon.lisp" (written 09 APR 2026 01:26:29 PM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/lexicon-tmpOU81XRV0.fasl
+; compilation finished in 0:00:00.002
+; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/operators.lisp" (written 09 APR 2026 01:26:39 PM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/operators-tmpY2ML9CFA.fasl
+; compilation finished in 0:00:00.003
+; compiling file "/Users/micahsmith/dev/hi/tests/planner-tests/core.lisp" (written 09 APR 2026 01:46:44 PM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/tests/planner-tests/core-tmpX2JYJDQE.fasl
+; compilation finished in 0:00:00.027
+        ？ HI::TEST-EAIL-FROM-FIXTURES
+  0.002 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.000 ✔   (is equal expected-eail actual-eail)
+  0.012 ✔ HI::TEST-EAIL-FROM-FIXTURES
+        ？ HI::SAIL-UNIT-TESTS
+        ？   HI::TEST-SAIL-FROM-FIXTURES
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.000 ✔     (is equal expected-sail actual-sail)
+  0.006 ✔   HI::TEST-SAIL-FROM-FIXTURES
+  0.006 ✔ HI::SAIL-UNIT-TESTS
 
 ;; Summary:
-Passed:    51
+Passed:    30
 Failed:     0
 Skipped:    0

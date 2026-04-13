@@ -5,12 +5,6 @@ SBCL is free software, provided as is, with absolutely no warranty.
 It is mostly in the public domain; some portions are provided under
 BSD-style licenses.  See the CREDITS and COPYING files in the
 distribution for more information.
-WARNING: redefining QL-SETUP:QMERGE in DEFUN
-WARNING: redefining QL-SETUP:QENOUGH in DEFUN
-WARNING: redefining QL-SETUP::IMPLEMENTATION-SIGNATURE in DEFUN
-WARNING: redefining QL-SETUP::DUMB-STRING-HASH in DEFUN
-WARNING: redefining QL-SETUP::ASDF-FASL-PATHNAME in DEFUN
-WARNING: redefining QL-SETUP::ENSURE-ASDF-LOADED in DEFUN
 WARNING: System definition file #P"/Users/micahsmith/quicklisp/dists/quicklisp/software/cl-redis-20250622-git/cl-redis.asd" contains definition for system "cl-redis-test". Please only define "cl-redis" and secondary systems with a name starting with "cl-redis/" (e.g. "cl-redis/test") in that file.
 WARNING:
    redefining TRIVIAL-GRAY-STREAMS:STREAM-READ-SEQUENCE (#<STANDARD-CLASS CL+SSL::SSL-STREAM>
@@ -24,19 +18,65 @@ WARNING:
                                                           #<SB-PCL:SYSTEM-CLASS COMMON-LISP:T>) in DEFMETHOD
 WARNING: redefining IRONCLAD:BLOCK-LENGTH in DEFGENERIC
 WARNING: redefining POSTMODERN:DAO-KEYS in DEFGENERIC
+; compiling file "/Users/micahsmith/dev/hi/src/package.lisp" (written 13 APR 2026 05:57:19 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/package-tmpAAURSO1.fasl
+; compilation finished in 0:00:00.007
+WARNING: redefining HI:LOG-LLM in DEFUN
+WARNING: redefining HI::WITH-LOG in DEFMACRO
+; compiling file "/Users/micahsmith/dev/hi/src/fact.lisp" (written 13 APR 2026 05:55:43 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/fact-tmp5GEXGEG5.fasl
+; compilation finished in 0:00:00.023
+; compiling file "/Users/micahsmith/dev/hi/src/ontology.lisp" (written 13 APR 2026 05:56:49 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/ontology-tmpAR3FSGEY.fasl
+; compilation finished in 0:00:00.012
+WARNING: redefining HI:LOAD-DOMAIN in DEFUN
+; compiling file "/Users/micahsmith/dev/hi/src/lifecycle/detect.lisp" (written 13 APR 2026 05:57:04 AM):
+
+; wrote /Users/micahsmith/.cache/common-lisp/sbcl-2.6.1-macosx-arm64/Users/micahsmith/dev/hi/src/lifecycle/detect-tmpJAIDFZTC.fasl
+; compilation finished in 0:00:00.006
 [Calculus] Reasoning layer initialized.
 [Scanners] Subsystem initialized.
 
-; file: /Users/micahsmith/dev/hi/scripts/test-runner.lisp
-; in: DEFUN ∆
-;     (:LOAD-SYSTEM :HI :FORCE T)
+; file: /Users/micahsmith/dev/hi/src/ontology.lisp
+; in: DEFUN HI:GET-SESSION-ONTOLOGY
+;     (HI::DB-QUERY-FACTS HI::SESSION-ID)
 ; 
 ; caught STYLE-WARNING:
-;   undefined function: :LOAD-SYSTEM
+;   undefined function: HI::DB-QUERY-FACTS
 ; 
 ; compilation unit finished
 ;   Undefined function:
-;     :LOAD-SYSTEM
+;     HI::DB-QUERY-FACTS
 ;   caught 1 STYLE-WARNING condition
-[hi] ready.
-[hi] smoke-test => T
+[Calculus] Reasoning layer initialized.
+[Scanners] Subsystem initialized.
+[Curiosity] Thread started.
+Server started on port 8086
+Dashboard available at http://localhost:8086/dashboard/
+127.0.0.1 - [2026-04-13 05:57:29] "GET /api/ws HTTP/1.1" 101 0 "-" "Python/3.11 websockets/16.0"
+[WS] Client connected to /api/ws.
+[WS] Starting TAP subscription for session sess-test.
+[WS] Task received for session sess-test: "what color is the sky?"
+[Input] Sensory signal received: "what color is the sky?"
+[WS] Task complete for sess-test, ID: NIL
+[WS] Client sess-test disconnected.
+TAP [input]: diff is null
+TAP [eil]: diff is str
+TAP [eail]: diff is str
+TAP [sail]: diff is str
+TAP [facts]: diff is str
+TAP [assimilate-senses]: diff is str
+TAP [input]: diff is null
+TAP [voids]: diff is str
+TAP [typed]: diff is str
+TAP [intent]: diff is str
+TAP [meta]: diff is str
+TAP [subject]: diff is str
+TAP [project-voids]: diff is str
+TAP [apply-physics]: diff is str
+TAP [transduce-isomorphisms]: diff is str
+FINAL RESPONSE: task executed successfully.
+FAILURE: Did not find 'blue' in the response.

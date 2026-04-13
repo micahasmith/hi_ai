@@ -24,3 +24,5 @@ datasets/** filter=git-crypt diff=git-crypt
 states/** filter=git-crypt diff=git-crypt
 docs/** filter=git-crypt diff=git-crypt
 moon-cycle-planning/** filter=git-crypt diff=git-crypt
+logs/** filter=git-crypt diff=git-crypt
+log-executions/** filter=git-crypt diff=git-crypt
